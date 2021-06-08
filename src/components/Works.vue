@@ -124,7 +124,7 @@ export default {
 
 .section--work .inner {
     position: relative;
-    overflow-x: visible;
+    overflow-x: hidden;
     padding: 0 40px;
 }
 
