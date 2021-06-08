@@ -5,7 +5,6 @@
             <ul class="menu">
                 <li class="active"><a href="/">about</a></li>
                 <li class=""><a href="#">works</a></li>
-                <li class=""><a href="#">portfolio</a></li>
                 <li class=""><a href="#">contact</a></li>
             </ul>
         </div>
