@@ -2,14 +2,14 @@
     <div class="section section--skills">
         <div class="inner">
             <h1 class="section-title">Skillset</h1>
-            <div class="skill-grid">
-                <div class="skill-item" v-for="(skill, idx) in skills" :key="skill.skillId">
+            <ul class="skills-wrap">
+                <li class="skill-item" v-for="(skill, idx) in skills" :key="skill.skillId">
                     <div>
                         <div class="skill-name-wrap">
                             <img :src="skill.skillImgPath" alt="" width="50" height="50"><p class="skill-name">{{skill.skillName}}</p>
                         </div>
-                        <div class="circle_progress_wrap">
-                            <svg class="circle_progress" width="140" height="140" viewBox="0 0 140 140">
+                        <div class="circle-progress-wrap">
+                            <svg class="circle-progress" width="140" height="140" viewBox="0 0 140 140">
                                 <circle class="frame" cx="70" cy="70" :r="progressRadius" stroke-width="12" />
                                 <circle class="bar" cx="70" cy="70" :r="progressRadius" stroke-width="12" :style="{'stroke-dasharray': calculateDasharray(), 'stroke-dashoffset': calculateDashoffset(skill.skillPer), 'stroke': progressColorList[idx]}"/>
                             </svg>
@@ -17,8 +17,8 @@
                         </div>
                     </div>
                     <div>{{skill.skillDescription}}</div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -102,7 +102,7 @@ export default {
 }
 </script>
 <style scoped>
-.skill-grid {
+.skills-wrap {
     margin: 0 10px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -118,13 +118,13 @@ export default {
 .skill-name-wrap {
     width: 100px;
 }
-.circle_progress_wrap {
+.circle-progress-wrap {
   position: relative;
   width: 140px;
   height: 140px;
   margin: 0 0 0 10px;
 }
-.circle_progress { transform: rotate(-90deg); }
+.circle-progress { transform: rotate(-90deg); }
 .frame, .bar { fill: none; }
 .frame { stroke: #e6e6e6; }
 .bar {
