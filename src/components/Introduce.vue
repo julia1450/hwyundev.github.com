@@ -6,7 +6,7 @@
         <div class="inner">
             <div class="common-introduce">
                 <div class="name-area">
-                    <!-- Yun HyeWon. -->
+                    Yun HyeWon
                 </div>
                 <ul class="contact">
                     <li><a href="#">email</a></li>
