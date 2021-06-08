@@ -32,6 +32,7 @@ export default {
     .section--introduce {
         background-color: #e7d4ea;
         height: calc(100% - 120px);
+        min-height: 400px;
         display: flex;
         flex-direction: column;
         justify-content: center;
