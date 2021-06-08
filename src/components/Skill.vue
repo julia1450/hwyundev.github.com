@@ -3,18 +3,20 @@
         <div class="inner">
             <h1 class="section-title">Skillset</h1>
             <div class="skill-grid">
-                <div class="skill-item" v-for="skill in skills" :key="skill.skillId">
-                    <div class="skill-name-wrap">
-                        <img :src="skill.skillImgPath" alt="" width="50" height="50"><p class="skill-name">{{skill.skillName}}</p>
+                <div class="skill-item" v-for="(skill, idx) in skills" :key="skill.skillId">
+                    <div>
+                        <div class="skill-name-wrap">
+                            <img :src="skill.skillImgPath" alt="" width="50" height="50"><p class="skill-name">{{skill.skillName}}</p>
+                        </div>
+                        <div class="circle_progress_wrap">
+                            <svg class="circle_progress" width="140" height="140" viewBox="0 0 140 140">
+                                <circle class="frame" cx="70" cy="70" :r="progressRadius" stroke-width="12" />
+                                <circle class="bar" cx="70" cy="70" :r="progressRadius" stroke-width="12" :style="{'stroke-dasharray': calculateDasharray(), 'stroke-dashoffset': calculateDashoffset(skill.skillPer), 'stroke': progressColorList[idx]}"/>
+                            </svg>
+                            <strong class="value">{{skill.skillPer}}%</strong>
+                        </div>
                     </div>
-                    <div class="circle_progress_wrap">
-                        <svg class="circle_progress" width="120" height="120" viewBox="0 0 120 120">
-                            <circle class="frame" cx="60" cy="60" :r="progressRadius" stroke-width="12" />
-                            <circle class="bar" cx="60" cy="60" :r="progressRadius" stroke-width="12" :style="{'stroke-dasharray': calculateDasharray(), 'stroke-dashoffset': calculateDashoffset(skill.skillPer)}"/>
-                        </svg>
-                        <strong class="value">{{skill.skillPer}}%</strong>
-                    </div>
-                    
+                    <div>{{skill.skillDescription}}</div>
                 </div>
             </div>
         </div>
@@ -25,55 +27,64 @@ export default {
     name: 'Skill',
     data() {
         return {
-            progressRadius: 54,
+            progressRadius: 60,
+            progressColorList: ["#ccbae2","#f0a9a7", "#d9bbc7", "#b1cfeb", "#a9d6a3", "#e1c2c0", "#d8cab0", "#d5adcf"],
             skills: [
                 {
                     skillId: 1,
                     skillPer: 80,
                     skillName: 'HTML5',
-                    skillImgPath: require('../assets/img/logo.png')
+                    skillImgPath: require('../assets/img/logo.png'),
+                    skillDescription: '마크업 구조를 시맨틱하게 설계 가능'
                 },
                 {
                     skillId: 2,
                     skillPer: 50,
                     skillName: 'CSS',
-                    skillImgPath: require('../assets/img/logo.png')
+                    skillImgPath: require('../assets/img/logo.png'),
+                    skillDescription: ''
                 },
                 {
                     skillId: 3,
                     skillPer: 80,
                     skillName: 'JavaScript + JQuery',
-                    skillImgPath: require('../assets/img/logo.png')
+                    skillImgPath: require('../assets/img/logo.png'),
+                    skillDescription: ''
                 },
                 {
                     skillId: 4,
                     skillPer: 20,
                     skillName: 'TypeScript',
-                    skillImgPath: require('../assets/img/logo.png')
+                    skillImgPath: require('../assets/img/logo.png'),
+                    skillDescription: ''
                 },
                 {
                     skillId: 5,
                     skillPer: 50,
                     skillName: 'MySQL',
-                    skillImgPath: require('../assets/img/logo.png')
+                    skillImgPath: require('../assets/img/logo.png'),
+                    skillDescription: ''
                 },
                 {
                     skillId: 6,
                     skillPer: 70,
                     skillName: 'Spring + SpringBoot',
-                    skillImgPath: require('../assets/img/logo.png')
+                    skillImgPath: require('../assets/img/logo.png'),
+                    skillDescription: ''
                 },
                 {
                     skillId: 7,
                     skillPer: 70,
                     skillName: 'VueJS',
-                    skillImgPath: require('../assets/img/logo.png')
+                    skillImgPath: require('../assets/img/logo.png'),
+                    skillDescription: ''
                 },
                 {
                     skillId: 8,
                     skillPer: 10,
                     skillName: 'ReactJS',
-                    skillImgPath: require('../assets/img/logo.png')
+                    skillImgPath: require('../assets/img/logo.png'),
+                    skillDescription: ''
                 }
             ]
         }
@@ -93,12 +104,25 @@ export default {
 <style scoped>
 .skill-grid {
     margin: 0 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 180px);
+    gap: 20px;
+}
+.skill-item > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.skill-name-wrap {
+    width: 100px;
 }
 .circle_progress_wrap {
   position: relative;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto;
+  width: 140px;
+  height: 140px;
+  margin: 0 0 0 10px;
 }
 .circle_progress { transform: rotate(-90deg); }
 .frame, .bar { fill: none; }
@@ -116,6 +140,6 @@ export default {
   text-align: center;
   color: #888;
   font-size: 16px;
-  line-height: 120px;
+  line-height: 140px;
 }
 </style>
