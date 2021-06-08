@@ -44,4 +44,17 @@ export default {
   max-width: 1500px;
   margin: 0 auto;
 }
+
+.section + .section {
+  margin-top: 30px;
+}
+
+.section:first-child + .section {
+  margin-top: 0;
+}
+
+.section-title {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
 </style>
