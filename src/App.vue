@@ -46,7 +46,8 @@ export default {
 }
 
 .section + .section {
-  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .section:first-child + .section {

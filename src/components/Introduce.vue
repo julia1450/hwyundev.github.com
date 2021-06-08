@@ -31,7 +31,7 @@ export default {
 <style scoped>
     .section--introduce {
         background-color: #e7d4ea;
-        height: calc(100% - 60px);
+        height: calc(100% - 120px);
         display: flex;
         flex-direction: column;
         justify-content: center;
