@@ -11,13 +11,13 @@
                     </div>
                 </li>
             </ul>
-            <div class="slider-control">
+            <div class="slider-control" v-if="maxWorkPage > 0">
                 <div class="arrow-wrap">
-                    <div class="arrow arrow-left">left</div>
-                    <div class="arrow arrow-right">right</div>
+                    <div class="arrow arrow-left" :style="leftArrowStyle" @click="moveLeftPage">left</div>
+                    <div class="arrow arrow-right" :style="rightArrowStyle" @click="moveRightPage">right</div>
                 </div>
                 <div class="select-work-wrap">
-                    <input v-for="idx in Math.ceil(works.length/3)" :key="idx" type="radio" name="select-work" :id="idx" :checked="idx===1">
+                    <input @change="movePage" v-for="page in maxWorkPage" :key="page" type="radio" name="select-work" :value="page-1" v-model="currentWorkPage">
                 </div>
             </div>
         </div>
@@ -72,7 +72,46 @@ export default {
                     workDescription: "설명입니다7",
                     workImgPath: require('../assets/img/logo.png')
                 }
-            ]
+            ],
+            currentWorkPage: 0
+        }
+    },
+    computed: {
+        maxWorkPage() {
+            return Math.ceil(this.works.length/3);
+        },
+        leftArrowStyle() {
+            if(this.currentWorkPage === 0) {
+                return {
+                    opacity: 0,
+                    pointerEvents: 'none'
+                };
+            }
+            else return {};
+        },
+        rightArrowStyle() {
+            if(this.currentWorkPage === this.maxWorkPage-1) {
+                return {
+                    opacity: 0,
+                    pointerEvents: 'none'
+                };
+            }
+            else return {};
+        }
+    },
+    methods: {
+        movePage() {
+            console.log(this.currentWorkPage);
+            var pageSize = document.getElementsByClassName("works-wrap")[0].offsetWidth;
+            document.getElementsByClassName("works-wrap")[0].style.left = (pageSize * -1 * this.currentWorkPage) + 'px';
+        },
+        moveLeftPage() {
+            this.currentWorkPage--;
+            this.movePage();
+        },
+        moveRightPage() {
+            this.currentWorkPage++;
+            this.movePage();
         }
     }
 }
@@ -97,6 +136,9 @@ export default {
     /* width: calc(400px * 6); */
     width: calc(100% - 20px);
     height: 500px;
+    position: relative;
+    left: 0;
+    transition: linear 0.5s;
 }
 
 .work-item {
@@ -136,6 +178,7 @@ export default {
     border-radius: 50%;
     background-color: #ffffffad;
     line-height: 50px;
+    cursor: pointer;
 }
 
 .select-work-wrap {
