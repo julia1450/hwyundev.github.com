@@ -1,43 +1,49 @@
 <template>
   <div id="app">
-    <AppHeader />
-    <Introduce />
-    <Skill />
-    <Works />
+    <AppHeader @scroll="scrollPage"/>
+    <router-view></router-view>
+    <AppFooter @scroll="scrollPage"/>
   </div>
 </template>
 
 <script>
 import AppHeader from './components/AppHeader.vue'
-import Introduce from './components/Introduce.vue'
-import Skill from './components/Skill.vue'
-import Works from './components/Works.vue'
+import AppFooter from './components/AppFooter.vue'
 
 export default {
   name: 'App',
   components: {
     AppHeader,
-    Introduce,
-    Skill,
-    Works
+    AppFooter
+  },
+  methods: {
+    scrollPage(sectionName) {
+      let offsetTop = document.getElementById(sectionName).offsetTop;
+      document.body.scrollTo(0, offsetTop);
+    }
   }
 }
 </script>
 
 <style>
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: overlay;
+  height: 100vh;
+  /* 스크롤바 투명하게 (explorer 호환) */
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  height: 100vh;
-  overflow: overlay;
-  /* 스크롤바 투명하게 (explorer 호환) */
-  -ms-overflow-style: none;
-}
-
-#app::-webkit-scrollbar {
-  display: none;
 }
 
 .section .inner {
@@ -45,7 +51,7 @@ export default {
   margin: 0 auto;
 }
 
-.section + .section {
+.section {
   padding-top: 30px;
   padding-bottom: 30px;
 }
