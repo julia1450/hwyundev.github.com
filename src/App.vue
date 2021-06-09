@@ -28,7 +28,6 @@ export default {
 <style>
 html, body {
   margin: 0;
-  height: 100%;
   overflow: overlay;
   height: 100vh;
   /* 스크롤바 투명하게 (explorer 호환) */
