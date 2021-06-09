@@ -148,7 +148,7 @@ export default {
 
 .work-item > .card {
     /* margin: 20px auto; */
-    margin: 20px;
+    margin: 0 20px;
     padding: 20px;
     background-color: white;
     /* width: 70%; */

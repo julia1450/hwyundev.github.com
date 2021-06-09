@@ -1,7 +1,7 @@
 <template>
     <div class="section section--skills">
         <div class="inner">
-            <h1 class="section-title">Skillset</h1>
+            <h1 class="section-title">Skill</h1>
             <ul class="skills-wrap">
                 <li class="skill-item" v-for="(skill, idx) in skills" :key="skill.skillId">
                     <div>
