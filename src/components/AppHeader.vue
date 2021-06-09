@@ -3,9 +3,10 @@
         <div class="inner">
             <div class="logo"></div>
             <ul class="menu">
-                <li class="active"><a href="/">about</a></li>
-                <li class=""><a href="#">works</a></li>
-                <li class=""><a href="#">contact</a></li>
+                <li class="active"><a @click="scrollPage('page-about')" href="javascript:void(0);">about</a></li>
+                <li class=""><a @click="scrollPage('page-skill')" href="javascript:void(0);">skill</a></li>
+                <li class=""><a @click="scrollPage('page-works')" href="javascript:void(0);">works</a></li>
+                <li class=""><a @click="scrollPage('page-contact')" href="javascript:void(0);">contact</a></li>
             </ul>
         </div>
     </header>
@@ -13,46 +14,55 @@
 
 <script>
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+    methods: {
+        scrollPage(sectionName) {
+            this.$emit("scroll", sectionName);
+        }
+    }
 }
 </script>
 
 <style scoped>
-    .section--header {
-        padding: 10px;
-        display: flex;
-        height: 60px;
-        box-sizing: border-box;
-        justify-content: center;
-    }
-    .section--header .inner {
-        margin: auto 0;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
+.section--header {
+    padding: 10px;
+    display: flex;
+    height: 60px;
+    box-sizing: border-box;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background-color: #fff;
+    box-shadow: 0 3px 10px -3px #e6e6e6;
+}
+.section--header .inner {
+    margin: auto 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    .logo {
-        width:30px;
-        height: 30px;
-        background-image: url("../assets/img/logo.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    
-    .menu{
-        display: flex;
-        margin: 0;
-        padding: 0;
-    }
-    .menu li {
-        margin-right: 10px;
-        padding: 10px 10px;
-    }
-    .menu li:last-child {
-        margin-right: 0;
-    }
+.logo {
+    width:30px;
+    height: 30px;
+    background-image: url("../assets/img/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
+.menu{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    margin-right: 10px;
+    padding: 10px 10px;
+}
+.menu li:last-child {
+    margin-right: 0;
+}
 </style>
