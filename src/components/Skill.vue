@@ -142,4 +142,34 @@ export default {
   font-size: 16px;
   line-height: 140px;
 }
+@media all and (max-width: 1080px) { 
+  .skills-wrap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media all and (max-width: 815px) { 
+  .skills-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media all and (max-width: 550px) { 
+  .section--skills {
+    max-height: 400px;
+    overflow-y: scroll;
+    padding-top: 0;
+  }
+  .section--skills .section-title {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 9999;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 5px #fff;
+  }
+  .skills-wrap {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 </style>

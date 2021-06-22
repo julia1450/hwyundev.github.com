@@ -36,7 +36,7 @@ export default {
 }
 .contact-wrap > div {
     width: 30%;
-    min-width: 400px;
+    min-width: 310px;
     padding: 0 5px;
     height: 100%;
 }
@@ -91,5 +91,14 @@ input:disabled {
     background-color: #e6e6e6;
     border: none;
     border-radius: 5px;
+}
+
+@media all and (max-width: 659px) {
+    input[name="message"] {
+        margin-top: 10px;
+    }
+    .contact-wrap > div {
+        width: 90%;
+    }
 }
 </style>

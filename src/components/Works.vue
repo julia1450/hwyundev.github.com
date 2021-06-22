@@ -26,6 +26,17 @@
 <script>
 export default {
     name: 'Works',
+    mounted() {
+        window.addEventListener('resize', this.handleResize);
+        let worksWrapWidth = document.getElementsByClassName('works-wrap')[0].offsetWidth;
+        let workItems = document.getElementsByClassName('work-item');
+        for(let i = 0; i < workItems.length; i++) {
+            workItems[i].style.minWidth = worksWrapWidth/this.currentWorkItem + "px";
+        }
+	},
+    beforeDestroy() {
+        window.removeEventListener('resize', this.handleResize);
+    },
     data() {
         return {
             barColorList: ["#ccbae2","#f0a9a7", "#d9bbc7", "#b1cfeb", "#a9d6a3", "#e1c2c0", "#d8cab0", "#d5adcf"],
@@ -73,12 +84,22 @@ export default {
                     workImgPath: require('../assets/img/logo.png')
                 }
             ],
-            currentWorkPage: 0
+            currentWorkPage: 0,
+            documentWidth: document.body.offsetWidth
         }
     },
     computed: {
+        currentWorkItem() {
+            if(this.documentWidth > 1250) {
+                return 4;
+            } else if (this.documentWidth > 950) {
+                return 3;
+            } else if (this.documentWidth > 650) {
+                return 2;
+            } else return 1;
+        },
         maxWorkPage() {
-            return Math.ceil(this.works.length/3);
+            return Math.ceil(this.works.length/this.currentWorkItem);
         },
         leftArrowStyle() {
             if(this.currentWorkPage === 0) {
@@ -102,7 +123,7 @@ export default {
     methods: {
         movePage() {
             console.log(this.currentWorkPage);
-            var pageSize = document.getElementsByClassName("works-wrap")[0].offsetWidth;
+            let pageSize = document.getElementsByClassName("works-wrap")[0].offsetWidth;
             document.getElementsByClassName("works-wrap")[0].style.left = (pageSize * -1 * this.currentWorkPage) + 'px';
         },
         moveLeftPage() {
@@ -111,6 +132,15 @@ export default {
         },
         moveRightPage() {
             this.currentWorkPage++;
+            this.movePage();
+        },
+        handleResize() {
+            this.documentWidth = document.body.offsetWidth;
+            let worksWrapWidth = document.getElementsByClassName('works-wrap')[0].offsetWidth;
+            let workItems = document.getElementsByClassName('work-item');
+            for(let i = 0; i < workItems.length; i++) {
+                workItems[i].style.minWidth = worksWrapWidth/this.currentWorkItem + "px";
+            }
             this.movePage();
         }
     }
@@ -142,7 +172,7 @@ export default {
 }
 
 .work-item {
-    min-width: calc(100% / 3);
+    /* min-width: calc(100% / 3); */
     height: 100%;
 }
 
@@ -154,6 +184,9 @@ export default {
     /* width: 70%; */
     height: calc(100% - 40px);
     box-sizing: border-box;
+}
+.work-item > .card > img {
+    height: 30%;
 }
 
 .slider-control {
@@ -176,7 +209,7 @@ export default {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #ffffffad;
+    background-color: #00000036;
     line-height: 50px;
     cursor: pointer;
 }
@@ -186,5 +219,9 @@ export default {
     bottom: 0;
     width: 100%;
     background-color: transparent;
+}
+
+@media all and (max-width: 1080px) { 
+    
 }
 </style>

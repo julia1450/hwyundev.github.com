@@ -95,4 +95,20 @@ export default {
     font-size: 34px;
     margin-bottom: 10px;
 }
+
+@media all and (max-width: 750px) {
+    .section--introduce .inner {
+        flex-wrap: wrap;
+    }
+    .common-introduce {
+        text-align: center;
+        border: none;
+        height: auto;
+        width: auto;
+        padding: 30px 0 60px 0;
+    }
+    .contact {
+        padding: 0 0 30px 0;
+    }
+}
 </style>
