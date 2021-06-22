@@ -96,7 +96,9 @@ export default {
                 return 3;
             } else if (this.documentWidth > 650) {
                 return 2;
-            } else return 1;
+            } else {
+                return 1;
+            }
         },
         maxWorkPage() {
             return Math.ceil(this.works.length/this.currentWorkItem);
@@ -125,6 +127,9 @@ export default {
             console.log(this.currentWorkPage);
             let pageSize = document.getElementsByClassName("works-wrap")[0].offsetWidth;
             document.getElementsByClassName("works-wrap")[0].style.left = (pageSize * -1 * this.currentWorkPage) + 'px';
+            if (this.currentWorkPage >= this.maxWorkPage) {
+                this.currentWorkPage = this.maxWorkPage-1;
+            }
         },
         moveLeftPage() {
             this.currentWorkPage--;
