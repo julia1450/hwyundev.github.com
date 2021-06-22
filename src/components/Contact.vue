@@ -5,11 +5,11 @@
             <div>
                 <div class="form-control"><input type="text" name="sender" id="sender" placeholder="이름을 입력해주세요"></div>
                 <div class="form-control form-inline">
-                    <select class="inline-item w-30p">
+                    <select class="inline-item w-30p" v-model="selectedSenderType">
                         <option value="개인">개인</option>
                         <option value="회사">회사</option>
                     </select>
-                    <input class="inline-item w-left" type="text" name="company" id="company" placeholder="회사명을 입력해주세요" disabled>
+                    <input class="inline-item w-left" type="text" name="company" id="company" placeholder="회사명을 입력해주세요" :disabled="selectedSenderType==='개인'">
                 </div>
                 <div class="form-control"><input type="text" name="subject" id="subject" placeholder="제목을 입력해주세요"></div>
             </div>
@@ -21,7 +21,12 @@
 
 <script>
 export default {
-    name: "Contact"
+    name: "Contact",
+    data() {
+        return {
+            selectedSenderType: "개인"
+        }
+    }
 }
 </script>
 
@@ -84,6 +89,20 @@ input[name=message] {
 input:disabled {
     cursor: not-allowed;
 }
+
+input::-webkit-input-placeholder {
+  color: #bbbbbb;
+}
+input:-ms-input-placeholder {
+  color: #bbbbbb;
+}
+textarea::-webkit-input-placeholder {
+  color: #bbbbbb;
+}
+textarea:-ms-input-placeholder {
+  color: #bbbbbb;
+}
+
 .send-btn {
     height: 34px;
     width: 70px;
