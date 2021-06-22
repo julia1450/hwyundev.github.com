@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     scrollPage(sectionName) {
-      let offsetTop = document.getElementById(sectionName).offsetTop;
+      let offsetTop = document.getElementById(sectionName).offsetTop - 60;
       document.body.scrollTo(0, offsetTop);
     }
   }
