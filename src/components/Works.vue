@@ -2,15 +2,6 @@
     <div class="section section--work">
         <div class="inner">
             <h1 class="section-title">works</h1>
-            <ul class="slider works-wrap">
-                <li class="slider-item work-item" v-for="work in works" :key="work.workId">
-                    <div class="card">
-                        <img :src="work.workImgPath" alt="">
-                        <div class="work-title">{{work.workTitle}}</div>
-                        <div class="work-description">{{work.workDescription}}</div>
-                    </div>
-                </li>
-            </ul>
             <div class="slider-control" v-if="maxWorkPage > 0">
                 <div class="arrow-wrap">
                     <div class="arrow arrow-left" :style="leftArrowStyle" @click="moveLeftPage">left</div>
@@ -20,6 +11,15 @@
                     <input @change="movePage" v-for="page in maxWorkPage" :key="page" type="radio" name="select-work" :value="page-1" v-model="currentWorkPage">
                 </div>
             </div>
+            <ul class="slider works-wrap">
+                <li class="slider-item work-item" v-for="work in works" :key="work.workId">
+                    <div class="card">
+                        <img :src="work.workImgPath" alt="">
+                        <div class="work-title">{{work.workTitle}}</div>
+                        <div class="work-description">{{work.workDescription}}</div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -124,7 +124,6 @@ export default {
     },
     methods: {
         movePage() {
-            console.log(this.currentWorkPage);
             let pageSize = document.getElementsByClassName("works-wrap")[0].offsetWidth;
             document.getElementsByClassName("works-wrap")[0].style.left = (pageSize * -1 * this.currentWorkPage) + 'px';
             if (this.currentWorkPage >= this.maxWorkPage) {
@@ -194,6 +193,10 @@ export default {
     height: 30%;
 }
 
+.work-title, .work-description {
+    margin-top: 10px;
+}
+
 .slider-control {
     position: absolute;
     width: 100%;
@@ -211,6 +214,7 @@ export default {
 }
 
 .arrow {
+    z-index: 9999;
     width: 50px;
     height: 50px;
     border-radius: 50%;
