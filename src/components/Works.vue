@@ -8,7 +8,9 @@
                     <div class="arrow arrow-right" :style="rightArrowStyle" @click="moveRightPage">right</div>
                 </div>
                 <div class="select-work-wrap">
-                    <input @change="movePage" v-for="page in maxWorkPage" :key="page" type="radio" name="select-work" :value="page-1" v-model="currentWorkPage">
+                    <label v-for="page in maxWorkPage" :key="page" :class="{'active': currentWorkPage == page-1}">
+                        <input id="page" @change="movePage" type="radio" name="select-work" :value="page-1" v-model="currentWorkPage">
+                    </label>
                 </div>
             </div>
             <ul class="slider works-wrap">
@@ -28,17 +30,16 @@ export default {
     name: 'Works',
     mounted() {
         window.addEventListener('resize', this.handleResize);
-        let worksWrapWidth = document.getElementsByClassName('works-wrap')[0].offsetWidth;
-        let workItems = document.getElementsByClassName('work-item');
-        for(let i = 0; i < workItems.length; i++) {
-            workItems[i].style.minWidth = worksWrapWidth/this.currentWorkItem + "px";
-        }
+        this.resizeWorksWrap();
+        this.addSliderEvent();
 	},
     beforeDestroy() {
         window.removeEventListener('resize', this.handleResize);
     },
     data() {
         return {
+            resizeTimer: null,
+            resizeDelay: 30,
             barColorList: ["#ccbae2","#f0a9a7", "#d9bbc7", "#b1cfeb", "#a9d6a3", "#e1c2c0", "#d8cab0", "#d5adcf"],
             works: [
                 {
@@ -123,12 +124,50 @@ export default {
         }
     },
     methods: {
+        resizeWorksWrap() {
+            let worksWrapWidth = document.getElementsByClassName('works-wrap')[0].offsetWidth;
+            let workItems = document.getElementsByClassName('work-item');
+            let slideSelector = document.querySelectorAll('.select-work-wrap label');
+            
+            for(let i = 0; i < workItems.length; i++) {
+                workItems[i].style.minWidth = worksWrapWidth/this.currentWorkItem + "px";
+            }
+            
+            for(let slideIdx = 0; slideIdx < slideSelector.length; slideIdx ++) {
+                slideSelector[slideIdx].style.minWidth = worksWrapWidth/2/this.maxWorkPage + "px";
+            }
+        },
+        addSliderEvent() {
+            let self = this;
+            let sliderItems = document.getElementsByClassName('slider-item');
+            let clickOffset;
+            let isItemDragged = false;
+            for(let idx = 0; idx < sliderItems.length; idx++) {
+                sliderItems[idx].addEventListener('mousedown', (e) => {
+                    isItemDragged = false;
+                    clickOffset = e.clientX;
+                });
+                sliderItems[idx].addEventListener('mousemove', function(){
+                    isItemDragged = true;
+                });
+                sliderItems[idx].addEventListener('mouseup', function(e){
+                    if(isItemDragged) {
+                        if(e.clientX > clickOffset && self.currentWorkPage != 0 ) {
+                            self.currentWorkPage--;
+                        } else if (e.clientX < clickOffset && self.currentWorkPage < self.maxWorkPage-1) {
+                            self.currentWorkPage++;
+                        }
+                        self.movePage();
+                    }
+                });
+            }
+        },
         movePage() {
             let pageSize = document.getElementsByClassName("works-wrap")[0].offsetWidth;
-            document.getElementsByClassName("works-wrap")[0].style.left = (pageSize * -1 * this.currentWorkPage) + 'px';
             if (this.currentWorkPage >= this.maxWorkPage) {
                 this.currentWorkPage = this.maxWorkPage-1;
             }
+            document.getElementsByClassName("works-wrap")[0].style.left = (pageSize * -1 * this.currentWorkPage) + 'px';
         },
         moveLeftPage() {
             this.currentWorkPage--;
@@ -139,13 +178,13 @@ export default {
             this.movePage();
         },
         handleResize() {
-            this.documentWidth = document.body.offsetWidth;
-            let worksWrapWidth = document.getElementsByClassName('works-wrap')[0].offsetWidth;
-            let workItems = document.getElementsByClassName('work-item');
-            for(let i = 0; i < workItems.length; i++) {
-                workItems[i].style.minWidth = worksWrapWidth/this.currentWorkItem + "px";
-            }
-            this.movePage();
+            let self = this;
+            clearTimeout(this.resizeTimer);
+            self.resizeTimer = setTimeout(function(){
+                self.documentWidth = document.body.offsetWidth;
+                self.resizeWorksWrap();
+                self.movePage();
+            }, self.resizeDelay);
         }
     }
 }
@@ -188,6 +227,7 @@ export default {
     /* width: 70%; */
     height: calc(100% - 40px);
     box-sizing: border-box;
+    user-select: none;
 }
 .work-item > .card > img {
     height: 30%;
@@ -224,10 +264,27 @@ export default {
 }
 
 .select-work-wrap {
+    z-index: 9999;
     position: absolute;
     bottom: 0;
     width: 100%;
     background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-work-wrap label {
+    height: 10px;
+    background-color: #fff;
+}
+
+.select-work-wrap label.active {
+    background-color: #0075ff;
+}
+
+.select-work-wrap input {
+    visibility: hidden;
 }
 
 @media all and (max-width: 1080px) { 
