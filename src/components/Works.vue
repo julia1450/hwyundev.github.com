@@ -285,6 +285,7 @@ export default {
 
 .select-work-wrap input {
     visibility: hidden;
+    height: 0;
 }
 
 @media all and (max-width: 1080px) { 
