@@ -145,16 +145,24 @@ export default {
 
             function startFn (e) {
                 isItemDragged = false;
-                clickOffset = e.clientX;
+                if(e.type == 'touchstart') {
+                    clickOffset = e.changedTouches[0].clientX;
+                } else clickOffset = e.clientX;
             }
             function moveFn () {
                 isItemDragged = true;
             }
             function endFn (e) {
-                if(isItemDragged) {
-                    if(e.clientX > clickOffset && self.currentWorkPage != 0 ) {
+                let currentOffset;
+                if(e.type == 'touchend') {
+                    currentOffset = e.changedTouches[0].clientX;
+                } else currentOffset = e.clientX;
+
+                console.log(Math.abs(clickOffset - currentOffset));
+                if(isItemDragged && Math.abs(clickOffset - currentOffset) > 50) {
+                    if(currentOffset > clickOffset && self.currentWorkPage != 0 ) {
                         self.currentWorkPage--;
-                    } else if (e.clientX < clickOffset && self.currentWorkPage < self.maxWorkPage-1) {
+                    } else if (currentOffset < clickOffset && self.currentWorkPage < self.maxWorkPage-1) {
                         self.currentWorkPage++;
                     }
                     self.movePage();
