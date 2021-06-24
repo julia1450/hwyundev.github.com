@@ -144,16 +144,13 @@ export default {
             let isItemDragged = false;
 
             function startFn (e) {
-                console.log('start');
                 isItemDragged = false;
                 clickOffset = e.clientX;
             }
             function moveFn () {
-                console.log('move');
                 isItemDragged = true;
             }
             function endFn (e) {
-                console.log('end');
                 if(isItemDragged) {
                     if(e.clientX > clickOffset && self.currentWorkPage != 0 ) {
                         self.currentWorkPage--;
