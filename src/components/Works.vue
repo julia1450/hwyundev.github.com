@@ -139,28 +139,28 @@ export default {
         },
         addSliderEvent() {
             let self = this;
-            let sliderItems = document.getElementsByClassName('slider-item');
+            let worksWrap = document.getElementsByClassName('section--work');
             let clickOffset;
             let isItemDragged = false;
-            for(let idx = 0; idx < sliderItems.length; idx++) {
-                sliderItems[idx].addEventListener('mousedown', (e) => {
-                    isItemDragged = false;
-                    clickOffset = e.clientX;
-                });
-                sliderItems[idx].addEventListener('mousemove', function(){
-                    isItemDragged = true;
-                });
-                sliderItems[idx].addEventListener('mouseup', function(e){
-                    if(isItemDragged) {
-                        if(e.clientX > clickOffset && self.currentWorkPage != 0 ) {
-                            self.currentWorkPage--;
-                        } else if (e.clientX < clickOffset && self.currentWorkPage < self.maxWorkPage-1) {
-                            self.currentWorkPage++;
-                        }
-                        self.movePage();
+
+            worksWrap[0].addEventListener('mousedown touchstart', (e) => {
+                isItemDragged = false;
+                clickOffset = e.clientX;
+            });
+            worksWrap[0].addEventListener('mousemove touchmove', function(e){
+                isItemDragged = true;
+            });
+            worksWrap[0].addEventListener('mouseup touchend', function(e){
+                if(isItemDragged) {
+                    if(e.clientX > clickOffset && self.currentWorkPage != 0 ) {
+                        self.currentWorkPage--;
+                    } else if (e.clientX < clickOffset && self.currentWorkPage < self.maxWorkPage-1) {
+                        self.currentWorkPage++;
                     }
-                });
-            }
+                    self.movePage();
+                }
+            });
+            
         },
         movePage() {
             let pageSize = document.getElementsByClassName("works-wrap")[0].offsetWidth;
@@ -193,6 +193,7 @@ export default {
 <style scoped>
 .section--work {
     background-color: #e6e6e6;
+    user-select: none;
 }
 
 .section--work .inner {
@@ -227,7 +228,8 @@ export default {
     /* width: 70%; */
     height: calc(100% - 40px);
     box-sizing: border-box;
-    user-select: none;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
 }
 .work-item > .card > img {
     height: 30%;
@@ -280,7 +282,7 @@ export default {
 }
 
 .select-work-wrap label.active {
-    background-color: #0075ff;
+    background-color: #b1cfeb;
 }
 
 .select-work-wrap input {
