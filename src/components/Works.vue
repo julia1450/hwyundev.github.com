@@ -147,10 +147,10 @@ export default {
                 isItemDragged = false;
                 clickOffset = e.clientX;
             });
-            worksWrap[0].addEventListener('mousemove touchmove', function(e){
+            worksWrap[0].addEventListener('mousemove touchmove', () => {
                 isItemDragged = true;
             });
-            worksWrap[0].addEventListener('mouseup touchend', function(e){
+            worksWrap[0].addEventListener('mouseup touchend', (e) => {
                 if(isItemDragged) {
                     if(e.clientX > clickOffset && self.currentWorkPage != 0 ) {
                         self.currentWorkPage--;
