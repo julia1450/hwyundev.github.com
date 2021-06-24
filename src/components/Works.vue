@@ -143,14 +143,17 @@ export default {
             let clickOffset;
             let isItemDragged = false;
 
-            worksWrap[0].addEventListener('mousedown touchstart', (e) => {
+            function startFn (e) {
+                console.log('start');
                 isItemDragged = false;
                 clickOffset = e.clientX;
-            });
-            worksWrap[0].addEventListener('mousemove touchmove', () => {
+            }
+            function moveFn () {
+                console.log('move');
                 isItemDragged = true;
-            });
-            worksWrap[0].addEventListener('mouseup touchend', (e) => {
+            }
+            function endFn (e) {
+                console.log('end');
                 if(isItemDragged) {
                     if(e.clientX > clickOffset && self.currentWorkPage != 0 ) {
                         self.currentWorkPage--;
@@ -159,7 +162,14 @@ export default {
                     }
                     self.movePage();
                 }
-            });
+            }
+
+            worksWrap[0].addEventListener('mousedown', startFn, false);
+            worksWrap[0].addEventListener('mousemove', moveFn, false);
+            worksWrap[0].addEventListener('mouseup', endFn, false);
+            worksWrap[0].addEventListener('touchstart', startFn, false);
+            worksWrap[0].addEventListener('touchmove', moveFn, false);
+            worksWrap[0].addEventListener('touchend', endFn, false);
             
         },
         movePage() {
