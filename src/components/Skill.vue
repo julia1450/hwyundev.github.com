@@ -157,12 +157,13 @@ export default {
     max-height: 400px;
     overflow-y: scroll;
     padding-top: 0;
+    position: relative;
   }
   .section--skills .section-title {
     position: sticky;
     top: 0;
     background: white;
-    z-index: 9999;
+    z-index: 10;
     padding-top: 30px;
     padding-bottom: 10px;
     box-sizing: border-box;
