@@ -224,7 +224,7 @@ export default {
     align-items: center;
     /* width: calc(400px * 6); */
     width: calc(100% - 20px);
-    height: 500px;
+    height: 460px;
     position: relative;
     left: 0;
     transition: linear 0.5s;
@@ -233,6 +233,8 @@ export default {
 .work-item {
     /* min-width: calc(100% / 3); */
     height: 100%;
+    padding: 10px 0 40px 0;
+    box-sizing: border-box;
 }
 
 .work-item > .card {
@@ -241,7 +243,7 @@ export default {
     padding: 20px;
     background-color: white;
     /* width: 70%; */
-    height: calc(100% - 40px);
+    height: calc(100%);
     box-sizing: border-box;
     border-top-left-radius: 40px;
     border-bottom-right-radius: 40px;
