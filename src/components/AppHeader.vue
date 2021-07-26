@@ -13,12 +13,11 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
     name: 'AppHeader',
     methods: {
-        scrollPage(sectionName) {
-            this.$store.commit('scrollPage', sectionName);
-        }
+        ...mapMutations(['scrollPage'])
     }
 }
 </script>

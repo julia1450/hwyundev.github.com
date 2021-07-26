@@ -6,7 +6,7 @@
         <div class="inner">
             <div class="common-introduce">
                 <div class="name-area">
-                    {{this.$store.state.introduceName}}
+                    {{this.getIntroduceName}}
                 </div>
                 <ul class="contact">
                     <li><a href="#">email</a></li>
@@ -23,8 +23,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
-    name: 'Introduce'
+    name: 'Introduce',
+    computed: {
+        ...mapGetters(['getIntroduceName'])
+    }
 }
 </script>
 

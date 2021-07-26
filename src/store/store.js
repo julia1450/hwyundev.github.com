@@ -7,10 +7,15 @@ export const store = new Vuex.Store({
     state: {
         introduceName: "Yun HyeWon"
     },
+    getters: {
+        getIntroduceName(state) {
+            return state.introduceName;
+        }
+    },
     mutations: {
         scrollPage(state, sectionName) {
             let offsetTop = document.getElementById(sectionName).offsetTop - 60;
             document.body.scrollTo(0, offsetTop);
-          }
+        }
     }
 });
