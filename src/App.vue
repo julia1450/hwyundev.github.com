@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <AppHeader @scroll="scrollPage"/>
+    <AppHeader/>
     <router-view></router-view>
-    <AppFooter @scroll="scrollPage"/>
+    <AppFooter/>
   </div>
 </template>
 
@@ -17,10 +17,7 @@ export default {
     AppFooter
   },
   methods: {
-    scrollPage(sectionName) {
-      let offsetTop = document.getElementById(sectionName).offsetTop - 60;
-      document.body.scrollTo(0, offsetTop);
-    }
+    
   }
 }
 </script>

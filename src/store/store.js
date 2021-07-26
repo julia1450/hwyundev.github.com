@@ -8,6 +8,9 @@ export const store = new Vuex.Store({
         introduceName: "Yun HyeWon"
     },
     mutations: {
-        
+        scrollPage(state, sectionName) {
+            let offsetTop = document.getElementById(sectionName).offsetTop - 60;
+            document.body.scrollTo(0, offsetTop);
+          }
     }
 });

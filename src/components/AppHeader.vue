@@ -17,7 +17,7 @@ export default {
     name: 'AppHeader',
     methods: {
         scrollPage(sectionName) {
-            this.$emit("scroll", sectionName);
+            this.$store.commit('scrollPage', sectionName);
         }
     }
 }

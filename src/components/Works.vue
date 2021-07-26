@@ -139,7 +139,7 @@ export default {
         },
         addSliderEvent() {
             let self = this;
-            let worksWrap = document.getElementsByClassName('section--work');
+            let worksWrap = document.getElementsByClassName('section--work')[0];
             let clickOffset;
             let isItemDragged = false;
 
@@ -169,12 +169,12 @@ export default {
                 }
             }
 
-            worksWrap[0].addEventListener('mousedown', startFn, false);
-            worksWrap[0].addEventListener('mousemove', moveFn, false);
-            worksWrap[0].addEventListener('mouseup', endFn, false);
-            worksWrap[0].addEventListener('touchstart', startFn, false);
-            worksWrap[0].addEventListener('touchmove', moveFn, false);
-            worksWrap[0].addEventListener('touchend', endFn, false);
+            worksWrap.addEventListener('mousedown', startFn, false);
+            worksWrap.addEventListener('mousemove', moveFn, false);
+            worksWrap.addEventListener('mouseup', endFn, false);
+            worksWrap.addEventListener('touchstart', startFn, false);
+            worksWrap.addEventListener('touchmove', moveFn, false);
+            worksWrap.addEventListener('touchend', endFn, false);
             
         },
         movePage() {

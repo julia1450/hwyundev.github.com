@@ -14,7 +14,7 @@ export default {
     name: 'AppFooter',
     methods: {
         scrollPage(sectionName) {
-            this.$emit("scroll", sectionName);
+            this.$store.commit('scrollPage', sectionName);
         }
     }
 }
