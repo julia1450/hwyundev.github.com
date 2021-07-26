@@ -36,14 +36,15 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .profil-image {
-    background: url(../assets/img/logo.png) no-repeat;
-    background-size: contain;
-    height: 200px;
-    background-position: center;
+    background: #fff center / contain no-repeat url(../assets/img/my-picture.jpg);
+    height: 420px;
+    width: 420px;
     margin-bottom: 30px;
+    border-radius: 50%;
 }
 
 .section--introduce .inner {
@@ -100,6 +101,10 @@ export default {
     .section--introduce .inner {
         flex-wrap: wrap;
     }
+    .profil-image {
+        height: 350px;
+        width: 350px;
+    }
     .common-introduce {
         text-align: center;
         border: none;
@@ -109,6 +114,14 @@ export default {
     }
     .contact {
         padding: 0 0 30px 0;
+    }
+}
+
+@media all and (max-width: 360px) {
+    .profil-image {
+        background: #fff center / contain no-repeat url(../assets/img/my-picture-small.jpg);
+        height: 250px;
+        width: 250px;
     }
 }
 </style>

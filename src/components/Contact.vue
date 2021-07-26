@@ -96,6 +96,9 @@ input::-webkit-input-placeholder {
 input:-ms-input-placeholder {
   color: #bbbbbb;
 }
+select {
+    color: #bbbbbb;
+}
 textarea::-webkit-input-placeholder {
   color: #bbbbbb;
 }

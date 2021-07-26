@@ -46,9 +46,9 @@ export default {
 }
 
 .logo {
-    width:30px;
-    height: 30px;
-    background-image: url("../assets/img/logo.png");
+    width: 53px;
+    height: 41px;
+    background-image: url("../assets/img/hyevlog-logo.png");
     background-repeat: no-repeat;
     background-size: contain;
 }
