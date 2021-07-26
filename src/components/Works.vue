@@ -194,7 +194,7 @@ export default {
         },
         handleResize() {
             let self = this;
-            clearTimeout(this.resizeTimer);
+            clearTimeout(self.resizeTimer);
             self.resizeTimer = setTimeout(function(){
                 self.documentWidth = document.body.offsetWidth;
                 self.resizeWorksWrap();
