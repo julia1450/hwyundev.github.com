@@ -6,7 +6,7 @@
         <div class="inner">
             <div class="common-introduce">
                 <div class="name-area">
-                    Yun HyeWon
+                    {{this.$store.state.introduceName}}
                 </div>
                 <ul class="contact">
                     <li><a href="#">email</a></li>
