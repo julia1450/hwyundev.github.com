@@ -46,7 +46,7 @@
                 >
             </div>
         </div>
-        <button class="send-btn">send</button>
+        <button class="btn send-btn">send</button>
     </section>
 </template>
 
@@ -138,12 +138,9 @@ textarea:-ms-input-placeholder {
 }
 
 .send-btn {
-    height: 34px;
     width: 70px;
     margin-top: 20px;
     background-color: #e6e6e6;
-    border: none;
-    border-radius: 5px;
 }
 
 @media all and (max-width: 659px) {
