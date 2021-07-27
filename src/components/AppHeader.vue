@@ -3,10 +3,54 @@
         <div class="inner">
             <div class="logo"></div>
             <ul class="menu">
-                <li class="active"><a @click="scrollPage('page-about')" href="javascript:void(0);"><font-awesome-icon :icon="['fa', 'address-card']" :style="{ color: '#ccbae2' }" title="about"/></a></li>
-                <li class=""><a @click="scrollPage('page-skill')" href="javascript:void(0);"><font-awesome-icon :icon="['fa', 'brain']" :style="{ color: '#ccbae2' }" title="skill"/></a></li>
-                <li class=""><a @click="scrollPage('page-works')" href="javascript:void(0);"><font-awesome-icon :icon="['fa', 'archive']" :style="{ color: '#ccbae2' }" title="works"/></a></li>
-                <li class=""><a @click="scrollPage('page-contact')" href="javascript:void(0);"><font-awesome-icon :icon="['fa', 'at']" :style="{ color: '#ccbae2' }" title="contact"/></a></li>
+                <li class="active">
+                    <a 
+                        @click="scrollPage('page-about')" 
+                        href="javascript:void(0);"
+                    >
+                        <font-awesome-icon 
+                            :icon="['fa', 'address-card']" 
+                            :style="{ color: '#ccbae2' }" 
+                            title="about"
+                        />
+                    </a>
+                </li>
+                <li class="">
+                    <a 
+                        @click="scrollPage('page-skill')"
+                        href="javascript:void(0);"
+                    >
+                        <font-awesome-icon 
+                            :icon="['fa', 'brain']" 
+                            :style="{ color: '#ccbae2' }" 
+                            title="skill"
+                        />
+                    </a>
+                </li>
+                <li class="">
+                    <a 
+                        @click="scrollPage('page-works')" 
+                        href="javascript:void(0);"
+                    >
+                        <font-awesome-icon 
+                            :icon="['fa', 'archive']" 
+                            :style="{ color: '#ccbae2' }" 
+                            title="works"
+                        />
+                    </a>
+                </li>
+                <li class="">
+                    <a 
+                        @click="scrollPage('page-contact')" 
+                        href="javascript:void(0);"
+                    >
+                        <font-awesome-icon 
+                            :icon="['fa', 'at']" 
+                            :style="{ color: '#ccbae2' }" 
+                            title="contact"
+                        />
+                    </a>
+                </li>
             </ul>
         </div>
     </header>

@@ -4,8 +4,20 @@
             <h1 class="section-title">works</h1>
             <div class="slider-control" v-if="maxWorkPage > 0">
                 <div class="arrow-wrap">
-                    <div class="arrow arrow-left" :style="leftArrowStyle" @click="moveLeftPage">left</div>
-                    <div class="arrow arrow-right" :style="rightArrowStyle" @click="moveRightPage">right</div>
+                    <div 
+                        class="arrow arrow-left" 
+                        :style="leftArrowStyle" 
+                        @click="moveLeftPage"
+                    >
+                        left
+                    </div>
+                    <div 
+                        class="arrow arrow-right" 
+                        :style="rightArrowStyle" 
+                        @click="moveRightPage"
+                    >
+                        right
+                    </div>
                 </div>
                 <div class="select-work-wrap">
                     <label 
@@ -13,14 +25,27 @@
                         :key="page" 
                         :class="{'active': currentWorkPage == page-1}"
                     >
-                        <input id="page" @change="movePage" type="radio" name="select-work" :value="page-1" v-model="currentWorkPage">
+                        <input 
+                            id="page" 
+                            @change="movePage" 
+                            type="radio" 
+                            name="select-work" 
+                            :value="page-1" 
+                            v-model="currentWorkPage"
+                        >
                     </label>
                 </div>
             </div>
             <ul class="slider works-wrap">
-                <li class="slider-item work-item" v-for="work in works" :key="work.workId">
+                <li class="slider-item work-item" 
+                    v-for="work in works" 
+                    :key="work.workId"
+                >
                     <div class="card">
-                        <img :src="work.workImgPath" alt="">
+                        <img 
+                            :src="work.workImgPath" 
+                            :alt="work.workTitle"
+                        >
                         <div class="work-title">{{work.workTitle}}</div>
                         <div class="work-description">{{work.workDescription}}</div>
                     </div>

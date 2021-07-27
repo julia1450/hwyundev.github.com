@@ -9,12 +9,31 @@
                 >
                     <div>
                         <div class="skill-name-wrap">
-                            <img :src="skill.skillImgPath" alt="" width="50" height="50"><p class="skill-name">{{skill.skillName}}</p>
+                            <img 
+                                :src="skill.skillImgPath" 
+                                :alt="skill.skillName"
+                                width="50" 
+                                height="50"
+                            >
+                            <p class="skill-name">{{skill.skillName}}</p>
                         </div>
                         <div class="circle-progress-wrap">
                             <svg class="circle-progress" width="140" height="140" viewBox="0 0 140 140">
-                                <circle class="frame" cx="70" cy="70" :r="progressRadius" stroke-width="12" />
-                                <circle class="bar" cx="70" cy="70" :r="progressRadius" stroke-width="12" :style="{'stroke-dasharray': calculateDasharray(), 'stroke-dashoffset': calculateDashoffset(skill.skillPer), 'stroke': progressColorList[idx]}"/>
+                                <circle 
+                                    class="frame" 
+                                    cx="70" 
+                                    cy="70" 
+                                    :r="progressRadius" 
+                                    stroke-width="12"
+                                />
+                                <circle 
+                                    class="bar" 
+                                    cx="70" 
+                                    cy="70" 
+                                    :r="progressRadius" 
+                                    stroke-width="12" 
+                                    :style="{'stroke-dasharray': calculateDasharray(), 'stroke-dashoffset': calculateDashoffset(skill.skillPer), 'stroke': progressColorList[idx]}"
+                                />
                             </svg>
                             <strong class="value">{{skill.skillPer}}%</strong>
                         </div>
