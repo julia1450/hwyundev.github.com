@@ -2,7 +2,10 @@
     <div class="section section--work">
         <div class="inner">
             <h1 class="section-title">works</h1>
-            <div class="slider-control" v-if="maxWorkPage > 0">
+            <div 
+                class="slider-control" 
+                v-if="maxWorkPage > 0"
+            >
                 <div class="arrow-wrap">
                     <div 
                         class="arrow arrow-left" 
