@@ -1,7 +1,13 @@
 <template>
     <div class="section section--work">
         <div class="inner">
-            <h1 class="section-title">works</h1>
+            <div class="title-wrap">
+                <h1 class="section-title">works</h1>
+                <div class="button-wrap">
+                    <button class="btn btn-default"><span>목록보기</span></button>
+                </div>
+            </div>
+            
             <div 
                 class="slider-control" 
                 v-if="maxWorkPage > 0"
@@ -78,43 +84,43 @@ export default {
                     workId: 1,
                     workTitle: "제목입니다1",
                     workDescription: "설명입니다1",
-                    workImgPath: require('../assets/img/logo.png')
+                    workImgPath: require('../../assets/img/logo.png')
                 },
                 {
                     workId: 2,
                     workTitle: "제목입니다2",
                     workDescription: "설명입니다2",
-                    workImgPath: require('../assets/img/logo.png')
+                    workImgPath: require('../../assets/img/logo.png')
                 },
                 {
                     workId: 3,
                     workTitle: "제목입니다3",
                     workDescription: "설명입니다3",
-                    workImgPath: require('../assets/img/logo.png')
+                    workImgPath: require('../../assets/img/logo.png')
                 },
                 {
                     workId: 4,
                     workTitle: "제목입니다4",
                     workDescription: "설명입니다4",
-                    workImgPath: require('../assets/img/logo.png')
+                    workImgPath: require('../../assets/img/logo.png')
                 },
                 {
                     workId: 5,
                     workTitle: "제목입니다5",
                     workDescription: "설명입니다5",
-                    workImgPath: require('../assets/img/logo.png')
+                    workImgPath: require('../../assets/img/logo.png')
                 },
                 {
                     workId: 6,
                     workTitle: "제목입니다6",
                     workDescription: "설명입니다6",
-                    workImgPath: require('../assets/img/logo.png')
+                    workImgPath: require('../../assets/img/logo.png')
                 },
                 {
                     workId: 7,
                     workTitle: "제목입니다7",
                     workDescription: "설명입니다7",
-                    workImgPath: require('../assets/img/logo.png')
+                    workImgPath: require('../../assets/img/logo.png')
                 }
             ],
             currentWorkPage: 0,
