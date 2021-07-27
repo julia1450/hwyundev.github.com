@@ -143,16 +143,16 @@ export default {
             let clickOffset;
             let isItemDragged = false;
 
-            function startFn (e) {
+            const startFn = (e) => {
                 isItemDragged = false;
                 if(e.type == 'touchstart') {
                     clickOffset = e.changedTouches[0].clientX;
                 } else clickOffset = e.clientX;
             }
-            function moveFn () {
+            const moveFn = () => {
                 isItemDragged = true;
             }
-            function endFn (e) {
+            const endFn = (e) => {
                 let currentOffset;
                 if(e.type == 'touchend') {
                     currentOffset = e.changedTouches[0].clientX;
