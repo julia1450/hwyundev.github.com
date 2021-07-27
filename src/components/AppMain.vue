@@ -10,7 +10,7 @@
 <script>
 import IntroduceApp from './IntroduceApp.vue'
 import SkillApp from './SkillApp.vue'
-import WorksApp from './WorksApp.vue'
+import WorksApp from './works/WorksApp.vue'
 import ContactApp from './ContactApp.vue'
 
 export default {
