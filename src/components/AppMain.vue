@@ -1,25 +1,25 @@
 <template>
     <div>
-        <Introduce id="page-about"/>
-        <Skill id="page-skill"/>
-        <Works id="page-works"/>
-        <Contact id="page-contact"/>
+        <IntroduceApp id="page-about"/>
+        <SkillApp id="page-skill"/>
+        <WorksApp id="page-works"/>
+        <ContactApp id="page-contact"/>
     </div>
 </template>
 
 <script>
-import Introduce from './Introduce.vue'
-import Skill from './Skill.vue'
-import Works from './Works.vue'
-import Contact from './Contact.vue'
+import IntroduceApp from './IntroduceApp.vue'
+import SkillApp from './SkillApp.vue'
+import WorksApp from './WorksApp.vue'
+import ContactApp from './ContactApp.vue'
 
 export default {
     name: 'AppMain',
     components: {
-        Introduce,
-        Skill,
-        Works,
-        Contact
+        IntroduceApp,
+        SkillApp,
+        WorksApp,
+        ContactApp
     }
 }
 </script>

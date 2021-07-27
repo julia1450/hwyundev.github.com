@@ -24,7 +24,7 @@
 </template>
 <script>
 export default {
-    name: 'Skill',
+    name: 'SkillApp',
     data() {
         return {
             progressRadius: 60,

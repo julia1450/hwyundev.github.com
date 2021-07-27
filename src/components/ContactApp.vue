@@ -21,7 +21,7 @@
 
 <script>
 export default {
-    name: "Contact",
+    name: "ContactApp",
     data() {
         return {
             selectedSenderType: "개인"

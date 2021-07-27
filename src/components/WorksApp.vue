@@ -27,7 +27,7 @@
 </template>
 <script>
 export default {
-    name: 'Works',
+    name: 'WorksApp',
     mounted() {
         window.addEventListener('resize', this.handleResize);
         this.resizeWorksWrap();

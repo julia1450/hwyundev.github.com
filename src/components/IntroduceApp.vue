@@ -25,7 +25,7 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
-    name: 'Introduce',
+    name: 'IntroduceApp',
     computed: {
         ...mapGetters(['getIntroduceName'])
     }
