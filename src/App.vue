@@ -56,8 +56,36 @@ html, body {
   margin-top: 0;
 }
 
+.title-wrap {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+
 .section-title {
   margin-bottom: 10px;
   font-size: 20px;
+}
+
+.title-wrap .section-title {
+  margin-bottom: 0;
+  line-height: 34px;
+}
+
+.title-wrap .button-wrap {
+  position: absolute;
+  right: 0;
+}
+
+.btn {
+  height: 34px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-default {
+  background-color: #fff;
 }
 </style>
