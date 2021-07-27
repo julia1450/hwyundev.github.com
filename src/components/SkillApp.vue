@@ -3,7 +3,10 @@
         <div class="inner">
             <h1 class="section-title">Skill</h1>
             <ul class="skills-wrap">
-                <li class="skill-item" v-for="(skill, idx) in skills" :key="skill.skillId">
+                <li class="skill-item" 
+                    v-for="(skill, idx) in skills" 
+                    :key="skill.skillId"
+                >
                     <div>
                         <div class="skill-name-wrap">
                             <img :src="skill.skillImgPath" alt="" width="50" height="50"><p class="skill-name">{{skill.skillName}}</p>

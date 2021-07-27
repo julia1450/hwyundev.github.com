@@ -8,7 +8,11 @@
                     <div class="arrow arrow-right" :style="rightArrowStyle" @click="moveRightPage">right</div>
                 </div>
                 <div class="select-work-wrap">
-                    <label v-for="page in maxWorkPage" :key="page" :class="{'active': currentWorkPage == page-1}">
+                    <label 
+                        v-for="page in maxWorkPage" 
+                        :key="page" 
+                        :class="{'active': currentWorkPage == page-1}"
+                    >
                         <input id="page" @change="movePage" type="radio" name="select-work" :value="page-1" v-model="currentWorkPage">
                     </label>
                 </div>
