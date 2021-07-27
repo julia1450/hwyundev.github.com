@@ -4,8 +4,8 @@
             <div class="logo"></div>
             <ul class="menu">
                 <li class="active">
-                    <a 
-                        @click="scrollPage('page-about')" 
+                    <router-link :to="{path:'/', hash:'#page-about'}"
+                        @click.native="scrollPage" 
                         href="javascript:void(0);"
                     >
                         <font-awesome-icon 
@@ -13,11 +13,11 @@
                             :style="{ color: '#ccbae2' }" 
                             title="about"
                         />
-                    </a>
+                    </router-link>
                 </li>
                 <li class="">
-                    <a 
-                        @click="scrollPage('page-skill')"
+                    <router-link :to="{path:'/', hash:'#page-skill'}"
+                        @click.native="scrollPage"
                         href="javascript:void(0);"
                     >
                         <font-awesome-icon 
@@ -25,11 +25,11 @@
                             :style="{ color: '#ccbae2' }" 
                             title="skill"
                         />
-                    </a>
+                    </router-link>
                 </li>
                 <li class="">
-                    <a 
-                        @click="scrollPage('page-works')" 
+                    <router-link :to="{path:'/', hash:'#page-works'}"
+                        @click.native="scrollPage"
                         href="javascript:void(0);"
                     >
                         <font-awesome-icon 
@@ -37,11 +37,11 @@
                             :style="{ color: '#ccbae2' }" 
                             title="works"
                         />
-                    </a>
+                    </router-link>
                 </li>
                 <li class="">
-                    <a 
-                        @click="scrollPage('page-contact')" 
+                    <router-link :to="{path:'/', hash:'#page-contact'}"
+                        @click.native="scrollPage"
                         href="javascript:void(0);"
                     >
                         <font-awesome-icon 
@@ -49,7 +49,7 @@
                             :style="{ color: '#ccbae2' }" 
                             title="contact"
                         />
-                    </a>
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -57,11 +57,13 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 export default {
     name: 'AppHeader',
     methods: {
-        ...mapMutations(['scrollPage'])
+        scrollPage() {
+            let sectionName = this.$route.hash.slice(1);
+            this.$store.commit('scrollPage', sectionName);
+        }
     }
 }
 </script>
