@@ -40,6 +40,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  min-width: 330px;
 }
 
 .section .inner {
@@ -77,6 +78,7 @@ html, body {
 .title-wrap .button-wrap {
   position: absolute;
   right: 0;
+  margin-right: 30px;
 }
 
 .btn {
@@ -87,5 +89,26 @@ html, body {
 
 .btn-default {
   background-color: #fff;
+}
+
+
+@media all and (max-width: 330px) {
+    ::-webkit-scrollbar {
+      display: block;
+      width: 0px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(139, 139, 139, 0.3);
+      border-radius: 5px;
+      background-clip: padding-box;
+      border: 2px solid transparent;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(139, 139, 139, 0.7);
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.7);
+    }
 }
 </style>

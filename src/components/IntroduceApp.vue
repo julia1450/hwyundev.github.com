@@ -45,7 +45,7 @@ export default {
 
 .profil-image {
     background: #fff center / contain no-repeat url(../assets/img/my-picture.jpg);
-        min-height: calc(100vh - 120px - 300px);
+    min-height: calc(100vh - 120px - 300px);
     min-width: calc(100vh - 120px - 300px);
     margin-bottom: 30px;
     border-radius: 50%;
@@ -106,8 +106,8 @@ export default {
         flex-wrap: wrap;
     }
     .profil-image {
-        min-height: calc(100vh - 120px - 370px);
-        min-width: calc(100vh - 120px - 370px);
+        min-height: calc(100vmin - 190px);
+        min-width: calc(100vmin - 190px);
     }
     .common-introduce {
         text-align: center;
@@ -127,15 +127,23 @@ export default {
     }
 }
 
-@media all and (max-width: 360px) {
+@media all and (max-width: 600px) {
     .profil-image {
         background: #fff center / contain no-repeat url(../assets/img/my-picture-small.jpg);
-        min-height: calc(100vh - 120px - 470px);
-        min-width: calc(100vh - 120px - 470px);
+        min-height: calc(100vmin - 170px);
+        min-width: calc(100vmin - 170px);
     }
     .name-area {
         font-size: 40px;
     }
     
 }
+
+@media all and (max-width: 400px) {
+    .profil-image {
+        min-height: 230px;
+        min-width: 230px;
+    }
+}
+
 </style>
