@@ -101,13 +101,18 @@ export default {
     margin-bottom: 10px;
 }
 
-@media all and (max-width: 750px) {
+@media all and (max-height: 600px) {
+    .profil-image {
+        display: none;
+    }
+}
+@media all and (max-width: 750px){
     .section--introduce .inner {
         flex-wrap: wrap;
     }
     .profil-image {
-        min-height: calc(100vmin - 190px);
-        min-width: calc(100vmin - 190px);
+        min-height: calc(100vh - 120px - 260px);
+        min-width: calc(100vh - 120px - 260px);
     }
     .common-introduce {
         text-align: center;
@@ -128,21 +133,8 @@ export default {
 }
 
 @media all and (max-width: 600px) {
-    .profil-image {
-        background: #fff center / contain no-repeat url(../assets/img/my-picture-small.jpg);
-        min-height: calc(100vmin - 170px);
-        min-width: calc(100vmin - 170px);
-    }
     .name-area {
         font-size: 40px;
-    }
-    
-}
-
-@media all and (max-width: 400px) {
-    .profil-image {
-        min-height: 230px;
-        min-width: 230px;
     }
 }
 
