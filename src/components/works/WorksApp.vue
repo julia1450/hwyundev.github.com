@@ -4,7 +4,17 @@
             <div class="title-wrap">
                 <h1 class="section-title">works</h1>
                 <div class="button-wrap">
-                    <button class="btn btn-default"><span>목록보기</span></button>
+                    
+                    <router-link class="btn btn-default" to="/works">
+                        <button class="btn btn-default">
+                            <font-awesome-icon 
+                                :icon="['fa', 'list']" 
+                                :style="{ color: '#000' }" 
+                                title="about"
+                            />
+                            목록보기
+                        </button>
+                    </router-link>
                 </div>
             </div>
             
@@ -255,6 +265,10 @@ export default {
     padding: 0 40px;
 }
 
+.button-wrap {
+    z-index: 9000;
+}
+
 .works-wrap {
     margin: 0 10px;
     display: flex;
@@ -297,7 +311,7 @@ export default {
 .slider-control {
     position: absolute;
     width: 100%;
-    height: 500px;
+    height: 490px;
     bottom: 0;
     left: 0;
 }
@@ -311,7 +325,7 @@ export default {
 }
 
 .arrow {
-    z-index: 9999;
+    z-index: 9000;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -321,7 +335,7 @@ export default {
 }
 
 .select-work-wrap {
-    z-index: 9999;
+    z-index: 9000;
     position: absolute;
     bottom: 0;
     width: 100%;

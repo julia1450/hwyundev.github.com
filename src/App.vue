@@ -85,10 +85,16 @@ html, body {
   height: 34px;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn-default {
   background-color: #fff;
+}
+
+.btn a {
+  text-decoration: none;
+  color: #000;
 }
 
 
