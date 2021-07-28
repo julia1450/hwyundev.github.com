@@ -132,9 +132,13 @@ export default {
     }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 600px) and (min-height: 700px)  {
     .name-area {
         font-size: 40px;
+    }
+    .profil-image {
+        min-height: 300px;
+        min-width: 300px;
     }
 }
 
