@@ -142,9 +142,12 @@ export default {
         border-top: solid 1px white;
         text-align: center;
     }
+    .name-area {
+        font-size: 80px;
+    }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 600px) and (max-height: 651px) {
     .profil-image {
         min-height: 300px;
         min-width: 300px;
