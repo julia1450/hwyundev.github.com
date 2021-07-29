@@ -9,8 +9,24 @@
                     {{this.getIntroduceName}}
                 </div>
                 <ul class="contact">
-                    <li><a href="#">email</a></li>
-                    <li><a href="#">phone</a></li>
+                    <li>
+                        <a href="#">
+                            <font-awesome-icon 
+                                :icon="['fa', 'envelope']" 
+                                :style="{ color: '#fff' }" 
+                                title="email"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/nyewoni_" target="_blank">
+                            <font-awesome-icon 
+                                :icon="['fab', 'instagram']" 
+                                :style="{ color: '#fff' }" 
+                                title="instagram"
+                            />
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="detail-introduce">
@@ -87,6 +103,14 @@ export default {
     margin-right: 10px;
 }
 
+.contact li a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #9a91a5;
+    padding: 10px;
+    border-radius: 50%;
+}
+
 .detail-introduce {
     flex-grow: 1;
     text-align: left;
@@ -148,6 +172,13 @@ export default {
 }
 
 @media all and (max-width: 600px) and (max-height: 651px) {
+    .profil-image {
+        min-height: 300px;
+        min-width: 300px;
+    }
+}
+
+@media all and (max-width: 600px) and (min-height: 650px) {
     .profil-image {
         min-height: 300px;
         min-width: 300px;
