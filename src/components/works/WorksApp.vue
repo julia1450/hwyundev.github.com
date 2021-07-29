@@ -68,9 +68,12 @@
   </div>
 </template>
 <script>
-import {mapState} from 'vuex'
+import {mapGetters} from 'vuex'
 export default {
   name: "WorksApp",
+  created() {
+      this.$store.dispatch("fetchWorks", {start: 0, size: 20});
+  },
   mounted() {
     window.addEventListener("resize", this.handleResize);
     this.resizeWorksWrap();
@@ -98,7 +101,7 @@ export default {
     };
   },
   computed: {
-    ...mapState({works: 'dashboardWorks'}),
+    ...mapGetters({works: 'getDashboardWorks'}),
     currentWorkItem() {
       if (this.documentWidth > 1250) {
         return 4;
