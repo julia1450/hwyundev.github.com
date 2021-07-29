@@ -11,9 +11,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(fas, far, fab)
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(router)
 Vue.config.productionTip = false
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 new Vue({
   render: h => h(App),
