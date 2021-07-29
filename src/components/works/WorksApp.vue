@@ -178,7 +178,6 @@ export default {
           currentOffset = e.changedTouches[0].clientX;
         } else currentOffset = e.clientX;
 
-        console.log(Math.abs(clickOffset - currentOffset));
         if (isItemDragged && Math.abs(clickOffset - currentOffset) > 50) {
           if (currentOffset > clickOffset && self.currentWorkPage != 0) {
             self.currentWorkPage--;
