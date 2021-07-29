@@ -16,7 +16,7 @@
                     </router-link>
                 </li>
                 <li class="">
-                    <router-link :to="{path:'/', hash:'#page-skill'}"
+                    <router-link :to="{path: baseUrl, hash:'#page-skill'}"
                         @click.native="scrollPage"
                         href="javascript:void(0);"
                     >
@@ -28,7 +28,7 @@
                     </router-link>
                 </li>
                 <li class="">
-                    <router-link :to="{path:'/', hash:'#page-works'}"
+                    <router-link :to="{path: baseUrl, hash:'#page-works'}"
                         @click.native="scrollPage"
                         href="javascript:void(0);"
                     >
@@ -40,7 +40,7 @@
                     </router-link>
                 </li>
                 <li class="">
-                    <router-link :to="{path:'/', hash:'#page-contact'}"
+                    <router-link :to="{path: baseUrl, hash:'#page-contact'}"
                         @click.native="scrollPage"
                         href="javascript:void(0);"
                     >
