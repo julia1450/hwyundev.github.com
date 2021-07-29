@@ -4,7 +4,7 @@
       <div class="title-wrap">
         <h1 class="section-title">works</h1>
         <div class="button-wrap">
-          <router-link to="/works">
+          <router-link :to="{path: baseUrl + '/works'}">
             <button class="btn btn-default">
               <font-awesome-icon
                 :icon="['fa', 'list']"
@@ -84,6 +84,7 @@ export default {
   },
   data() {
     return {
+      baseUrl: process.env.NODE_ENV === "production" ? "/portfolio" : "/",
       resizeTimer: null,
       resizeDelay: 30,
       barColorList: [
