@@ -84,7 +84,7 @@ export default {
   },
   data() {
     return {
-      baseUrl: process.env.NODE_ENV === "production" ? "/portfolio" : "/",
+      baseUrl: process.env.NODE_ENV === "production" ? "/portfolio" : "",
       resizeTimer: null,
       resizeDelay: 30,
       barColorList: [
