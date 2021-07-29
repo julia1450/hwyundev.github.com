@@ -4,7 +4,7 @@
             <div class="logo"></div>
             <ul class="menu">
                 <li class="active">
-                    <router-link :to="{path:'/', hash:'#page-about'}"
+                    <router-link :to="{path: baseUrl, hash:'#page-about'}"
                         @click.native="scrollPage" 
                         href="javascript:void(0);"
                     >
@@ -59,6 +59,11 @@
 <script>
 export default {
     name: 'AppHeader',
+    data() {
+        return {
+            baseUrl: process.env.NODE_ENV === 'production'? '/portfolio' : '/'
+        }
+    },
     methods: {
         scrollPage() {
             let sectionName = this.$route.hash.slice(1);
