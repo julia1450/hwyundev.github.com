@@ -1,7 +1,7 @@
 <template>
     <div class="section section--skills">
         <div class="inner">
-            <h1 class="section-title">Skill</h1>
+            <h1 class="section-title">skill</h1>
             <ul class="skills-wrap">
                 <li class="skill-item" 
                     v-for="(skill, idx) in skills" 
@@ -131,6 +131,23 @@ export default {
     grid-template-rows: repeat(2, 180px);
     gap: 20px;
 }
+.skills-wrap::-webkit-scrollbar {
+    display: block;
+    width: 10px;
+    height: 0px;
+}
+.skills-wrap::-webkit-scrollbar-thumb {
+    background-color: rgba(139, 139, 139, 0.3);
+    border-radius: 5px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+.skills-wrap::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(139, 139, 139, 0.7);
+}
+.skills-wrap::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.7);
+}
 .skill-item > div {
     display: flex;
     justify-content: center;
@@ -172,12 +189,12 @@ export default {
 @media all and (max-width: 815px) { 
   .skills-wrap {
     grid-template-columns: repeat(2, 1fr);
+    max-height: 600px;
+    overflow-y: scroll;
   }
 }
 @media all and (max-width: 550px) { 
   .section--skills {
-    max-height: 400px;
-    overflow-y: scroll;
     padding-top: 0;
     position: relative;
   }
@@ -193,6 +210,8 @@ export default {
   }
   .skills-wrap {
     grid-template-columns: repeat(1, 1fr);
+    max-height: 400px;
+    overflow-y: scroll;
   }
 }
 </style>
