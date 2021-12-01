@@ -20,7 +20,8 @@ module.exports = {
 				tabWidth: 2,
 				traillingComma: "all",
 				barcketSpacing: true,
-				arrowParens: "avoid"
+				arrowParens: "avoid",
+				endOfLine: 'auto',
 			}
 		]
 	},
