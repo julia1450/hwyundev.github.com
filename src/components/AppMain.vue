@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import IntroduceApp from "./IntroduceApp.vue"
-import SkillApp from "./SkillApp.vue"
-import WorksApp from "./works/WorksApp.vue"
-import ContactApp from "./ContactApp.vue"
+import IntroduceApp from "@/components/IntroduceApp.vue"
+import SkillApp from "@/components/SkillApp.vue"
+import WorksApp from "@/components/works/WorksApp.vue"
+import ContactApp from "@/components/ContactApp.vue"
 
 export default {
 	name: "AppMain",
