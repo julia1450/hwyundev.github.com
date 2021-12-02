@@ -20,7 +20,7 @@ const routes = [
 				meta: { title: "HyeVlog" },
 			},
 			{
-				path: "/works",
+				path: "works",
 				component: WorkList,
 				meta: { title: "작업물 목록" },
 			},

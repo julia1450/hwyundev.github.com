@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex"
 export default {
 	name: "AppFooter",
 	data() {
@@ -51,7 +50,10 @@ export default {
 		}
 	},
 	methods: {
-		...mapMutations(["scrollPage"]),
+		scrollPage() {
+			let sectionName = this.$route.hash.slice(1)
+			this.$store.commit("scrollPage", sectionName)
+		},
 	},
 }
 </script>
@@ -59,6 +61,11 @@ export default {
 <style scoped>
 .section--footer {
 	background-color: #000;
+	height: 60px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .menu {
 	display: flex;

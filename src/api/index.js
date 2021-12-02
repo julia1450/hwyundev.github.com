@@ -7,11 +7,10 @@ const config = {
 			: "http://localhost:3000/",
 }
 
-function fetchWorksList(start, size) {
+function fetchWorksList(payload) {
 	return axios.get(`${config.baseUrl}work`, {
 		params: {
-			start,
-			size,
+			...payload,
 		},
 	})
 }
