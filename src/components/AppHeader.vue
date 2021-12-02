@@ -13,7 +13,7 @@
 							:icon="['fa', 'address-card']"
 							:style="{ color: '#ccbae2' }"
 							title="about"
-						/>
+						/>about
 					</router-link>
 				</li>
 				<li class="">
@@ -26,7 +26,7 @@
 							:icon="['fa', 'brain']"
 							:style="{ color: '#ccbae2' }"
 							title="skill"
-						/>
+						/>skill
 					</router-link>
 				</li>
 				<li class="">
@@ -39,7 +39,7 @@
 							:icon="['fa', 'archive']"
 							:style="{ color: '#ccbae2' }"
 							title="works"
-						/>
+						/>works
 					</router-link>
 				</li>
 				<li class="">
@@ -52,10 +52,19 @@
 							:icon="['fa', 'at']"
 							:style="{ color: '#ccbae2' }"
 							title="contact"
-						/>
+						/>contact
 					</router-link>
 				</li>
 			</ul>
+			<div class="button-area">
+				<router-link :to="{ path: '/login' }">
+					<font-awesome-icon
+						:icon="['fa', 'key']"
+						:style="{ color: '#ccbae2' }"
+						title="관리자 인증"
+					/>
+				</router-link>
+			</div>
 		</div>
 	</header>
 </template>
@@ -94,7 +103,7 @@ export default {
 	margin: auto 0;
 	width: 100%;
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -114,9 +123,27 @@ export default {
 }
 .menu li {
 	margin-right: 10px;
-	padding: 10px 10px;
+	padding: 10px 0px;
 }
 .menu li:last-child {
 	margin-right: 0;
+}
+.section--header .inner a {
+	color: #ccbae2;
+	text-decoration: none;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+}
+.menu li a svg {
+	margin-right: 5px;
+	font-size: 11px;
+}
+.button-area {
+	height: 41px;
+	width: 53px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 </style>
