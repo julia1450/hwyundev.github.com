@@ -28,13 +28,9 @@ export const store = new Vuex.Store({
 	},
 	actions: {
 		fetchWorks(state, payload) {
-			fetchWorksList(payload.start, payload.size)
-				.then(response => {
-					this.commit("setWorks", response.data)
-				})
-				.catch(error => {
-					console.log(error)
-				})
+			fetchWorksList(payload.start, payload.size).then(response => {
+				this.commit("setWorks", response.data)
+			})
 		},
 	},
 })
