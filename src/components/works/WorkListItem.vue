@@ -1,13 +1,11 @@
 <template>
-    <div>WorkListItem</div>
+	<div>WorkListItem</div>
 </template>
 
 <script>
 export default {
-    name: 'WorkListItem'
+	name: "WorkListItem",
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
