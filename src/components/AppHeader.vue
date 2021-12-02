@@ -13,7 +13,8 @@
 							:icon="['fa', 'address-card']"
 							:style="{ color: '#ccbae2' }"
 							title="about"
-						/>about
+						/>
+						<span class="menu-name"> about </span>
 					</router-link>
 				</li>
 				<li class="">
@@ -26,7 +27,8 @@
 							:icon="['fa', 'brain']"
 							:style="{ color: '#ccbae2' }"
 							title="skill"
-						/>skill
+						/>
+						<span class="menu-name"> skill </span>
 					</router-link>
 				</li>
 				<li class="">
@@ -39,7 +41,8 @@
 							:icon="['fa', 'archive']"
 							:style="{ color: '#ccbae2' }"
 							title="works"
-						/>works
+						/>
+						<span class="menu-name"> works </span>
 					</router-link>
 				</li>
 				<li class="">
@@ -52,7 +55,8 @@
 							:icon="['fa', 'at']"
 							:style="{ color: '#ccbae2' }"
 							title="contact"
-						/>contact
+						/>
+						<span class="menu-name"> contact </span>
 					</router-link>
 				</li>
 			</ul>
@@ -122,7 +126,7 @@ export default {
 	padding: 0;
 }
 .menu li {
-	margin-right: 10px;
+	margin-right: 30px;
 	padding: 10px 0px;
 }
 .menu li:last-child {
@@ -131,13 +135,13 @@ export default {
 .section--header .inner a {
 	color: #ccbae2;
 	text-decoration: none;
-	font-size: 15px;
+	font-size: 17px;
 	display: flex;
 	align-items: center;
 }
 .menu li a svg {
 	margin-right: 5px;
-	font-size: 11px;
+	font-size: 15px;
 }
 .button-area {
 	height: 41px;
@@ -145,5 +149,16 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+@media all and (max-width: 600px) {
+	.menu li {
+		margin-right: 20px;
+	}
+	.menu li a svg {
+		font-size: 17px;
+	}
+	.menu li a .menu-name {
+		display: none;
+	}
 }
 </style>
