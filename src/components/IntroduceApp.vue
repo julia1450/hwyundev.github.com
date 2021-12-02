@@ -51,7 +51,7 @@ export default {
 
 <style scoped>
 .section--introduce {
-	background-color: #e7d4ea;
+	background-color: #f8f4fe;
 	height: calc(100vh - 120px);
 	min-height: 400px;
 	display: flex;
@@ -77,13 +77,12 @@ export default {
 .common-introduce {
 	height: 300px;
 	width: 500px;
-	padding: 30px 0;
+	padding: 30px;
 	box-sizing: border-box;
 	position: relative;
-	padding-left: 10px;
 	padding-right: 50px;
 	text-align: right;
-	border-right: #fff 1px solid;
+	border-right: solid 1px #9d94a75e;
 }
 
 .name-area {
@@ -108,14 +107,19 @@ export default {
 	text-decoration: none;
 	color: #fff;
 	background-color: #9a91a5;
-	padding: 10px;
 	border-radius: 50%;
+	width: 38px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	display: block;
+	box-sizing: border-box;
 }
 
 .detail-introduce {
 	flex-grow: 1;
 	text-align: left;
-	padding: 0 10px 0 50px;
+	padding: 0 30px 0 50px;
 }
 
 .detail-introduce h1 {
@@ -151,12 +155,13 @@ export default {
 		font-size: 50px;
 	}
 	.contact {
-		padding: 0 0 30px 0;
+		padding: 0 0 10px 0;
 	}
 	.detail-introduce {
 		padding: 10px 0 10px;
-		border-top: solid 1px white;
+		border-top: solid 1px #9d94a75e;
 		text-align: center;
+		margin: 0 30px;
 	}
 }
 
