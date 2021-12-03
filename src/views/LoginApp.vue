@@ -26,7 +26,7 @@ export default {
 	name: "LoginApp",
 	data() {
 		return {
-			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio" : "/",
+			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio/" : "/",
 		}
 	},
 }

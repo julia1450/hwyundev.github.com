@@ -7,7 +7,7 @@ import LoginApp from "@/views/LoginApp"
 
 Vue.use(VueRouter)
 
-const baseURL = process.env.NODE_ENV === "production" ? "/portfolio" : "/"
+const baseURL = process.env.NODE_ENV === "production" ? "/portfolio/" : "/"
 const routes = [
 	{
 		path: `${baseURL}`,

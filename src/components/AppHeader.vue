@@ -29,7 +29,7 @@
 				</li>
 			</ul>
 			<div class="button-area">
-				<router-link :to="{ path: baseUrl + '/login' }">
+				<router-link :to="{ path: baseUrl + 'login' }">
 					<font-awesome-icon :icon="['fa', 'key']" :style="{ color: '#ccbae2' }" title="관리자 인증" />
 				</router-link>
 			</div>
@@ -42,7 +42,7 @@ export default {
 	name: "AppHeader",
 	data() {
 		return {
-			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio" : "/",
+			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio/" : "/",
 		}
 	},
 	methods: {

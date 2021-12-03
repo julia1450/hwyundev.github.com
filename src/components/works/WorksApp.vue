@@ -4,13 +4,9 @@
 			<div class="title-wrap">
 				<h1 class="section-title">works</h1>
 				<div class="button-wrap">
-					<router-link :to="{ path: baseUrl + '/works' }">
+					<router-link :to="{ path: baseUrl + 'works' }">
 						<button class="btn btn-default">
-							<font-awesome-icon
-								:icon="['fa', 'list']"
-								:style="{ color: '#000' }"
-								title="목록보기"
-							/>
+							<font-awesome-icon :icon="['fa', 'list']" :style="{ color: '#000' }" title="목록보기" />
 							목록보기
 						</button>
 					</router-link>
@@ -19,44 +15,17 @@
 
 			<div class="slider-control" v-if="maxWorkPage > 0">
 				<div class="arrow-wrap">
-					<div
-						class="arrow arrow-left"
-						:style="leftArrowStyle"
-						@click="moveLeftPage"
-					>
-						left
-					</div>
-					<div
-						class="arrow arrow-right"
-						:style="rightArrowStyle"
-						@click="moveRightPage"
-					>
-						right
-					</div>
+					<div class="arrow arrow-left" :style="leftArrowStyle" @click="moveLeftPage">left</div>
+					<div class="arrow arrow-right" :style="rightArrowStyle" @click="moveRightPage">right</div>
 				</div>
 				<div class="select-work-wrap">
-					<label
-						v-for="page in maxWorkPage"
-						:key="page"
-						:class="{ active: currentWorkPage == page - 1 }"
-					>
-						<input
-							id="page"
-							@change="movePage"
-							type="radio"
-							name="select-work"
-							:value="page - 1"
-							v-model="currentWorkPage"
-						/>
+					<label v-for="page in maxWorkPage" :key="page" :class="{ active: currentWorkPage == page - 1 }">
+						<input id="page" @change="movePage" type="radio" name="select-work" :value="page - 1" v-model="currentWorkPage" />
 					</label>
 				</div>
 			</div>
 			<ul class="slider works-wrap">
-				<li
-					class="slider-item work-item"
-					v-for="work in works"
-					:key="work.workId"
-				>
+				<li class="slider-item work-item" v-for="work in works" :key="work.workId">
 					<div class="card">
 						<img :src="work.workImgPath" :alt="work.workTitle" />
 						<div class="work-title">{{ work.workTitle }}</div>
@@ -84,19 +53,10 @@ export default {
 	},
 	data() {
 		return {
-			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio" : "",
+			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio/" : "",
 			resizeTimer: null,
 			resizeDelay: 30,
-			barColorList: [
-				"#ccbae2",
-				"#f0a9a7",
-				"#d9bbc7",
-				"#b1cfeb",
-				"#a9d6a3",
-				"#e1c2c0",
-				"#d8cab0",
-				"#d5adcf",
-			],
+			barColorList: ["#ccbae2", "#f0a9a7", "#d9bbc7", "#b1cfeb", "#a9d6a3", "#e1c2c0", "#d8cab0", "#d5adcf"],
 			currentWorkPage: 0,
 			documentWidth: document.body.offsetWidth,
 		}
@@ -143,19 +103,16 @@ export default {
 	},
 	methods: {
 		resizeWorksWrap() {
-			let worksWrapWidth =
-				document.getElementsByClassName("works-wrap")[0].offsetWidth
+			let worksWrapWidth = document.getElementsByClassName("works-wrap")[0].offsetWidth
 			let workItems = document.getElementsByClassName("work-item")
 			let slideSelector = document.querySelectorAll(".select-work-wrap label")
 
 			for (let i = 0; i < workItems.length; i++) {
-				workItems[i].style.minWidth =
-					worksWrapWidth / this.currentWorkItem + "px"
+				workItems[i].style.minWidth = worksWrapWidth / this.currentWorkItem + "px"
 			}
 
 			for (let slideIdx = 0; slideIdx < slideSelector.length; slideIdx++) {
-				slideSelector[slideIdx].style.minWidth =
-					worksWrapWidth / 2 / this.maxWorkPage + "px"
+				slideSelector[slideIdx].style.minWidth = worksWrapWidth / 2 / this.maxWorkPage + "px"
 			}
 		},
 		addSliderEvent() {
@@ -182,10 +139,7 @@ export default {
 				if (isItemDragged && Math.abs(clickOffset - currentOffset) > 50) {
 					if (currentOffset > clickOffset && self.currentWorkPage != 0) {
 						self.currentWorkPage--
-					} else if (
-						currentOffset < clickOffset &&
-						self.currentWorkPage < self.maxWorkPage - 1
-					) {
+					} else if (currentOffset < clickOffset && self.currentWorkPage < self.maxWorkPage - 1) {
 						self.currentWorkPage++
 					}
 					self.movePage()
@@ -200,13 +154,11 @@ export default {
 			worksWrap.addEventListener("touchend", endFn, false)
 		},
 		movePage() {
-			let pageSize =
-				document.getElementsByClassName("works-wrap")[0].offsetWidth
+			let pageSize = document.getElementsByClassName("works-wrap")[0].offsetWidth
 			if (this.currentWorkPage >= this.maxWorkPage) {
 				this.currentWorkPage = this.maxWorkPage - 1
 			}
-			document.getElementsByClassName("works-wrap")[0].style.left =
-				pageSize * -1 * this.currentWorkPage + "px"
+			document.getElementsByClassName("works-wrap")[0].style.left = pageSize * -1 * this.currentWorkPage + "px"
 		},
 		moveLeftPage() {
 			this.currentWorkPage--

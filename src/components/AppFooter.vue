@@ -2,40 +2,16 @@
 	<section class="section section--footer">
 		<ul class="menu">
 			<li class="active">
-				<router-link
-					:to="{ path: baseUrl, hash: '#page-about' }"
-					@click.native="scrollPage"
-					href="javascript:void(0);"
-				>
-					about
-				</router-link>
+				<router-link :to="{ path: baseUrl, hash: '#page-about' }" @click.native="scrollPage" href="javascript:void(0);"> about </router-link>
 			</li>
 			<li class="">
-				<router-link
-					:to="{ path: baseUrl, hash: '#page-skill' }"
-					@click.native="scrollPage"
-					href="javascript:void(0);"
-				>
-					skill
-				</router-link>
+				<router-link :to="{ path: baseUrl, hash: '#page-skill' }" @click.native="scrollPage" href="javascript:void(0);"> skill </router-link>
 			</li>
 			<li class="">
-				<router-link
-					:to="{ path: baseUrl, hash: '#page-works' }"
-					@click.native="scrollPage"
-					href="javascript:void(0);"
-				>
-					works
-				</router-link>
+				<router-link :to="{ path: baseUrl, hash: '#page-works' }" @click.native="scrollPage" href="javascript:void(0);"> works </router-link>
 			</li>
 			<li class="">
-				<router-link
-					:to="{ path: baseUrl, hash: '#page-contact' }"
-					@click.native="scrollPage"
-					href="javascript:void(0);"
-				>
-					contact
-				</router-link>
+				<router-link :to="{ path: baseUrl, hash: '#page-contact' }" @click.native="scrollPage" href="javascript:void(0);"> contact </router-link>
 			</li>
 		</ul>
 	</section>
@@ -46,7 +22,7 @@ export default {
 	name: "AppFooter",
 	data() {
 		return {
-			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio" : "/",
+			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio/" : "/",
 		}
 	},
 	methods: {
