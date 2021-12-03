@@ -56,10 +56,12 @@ export default {
 	align-items: center;
 	justify-content: center;
 	width: 400px;
+	min-width: 330px;
 	height: 300px;
 	background-color: #fff;
 	padding: 0 40px;
 	border-radius: 5px;
+	margin: 0 30px;
 }
 .input-wrapper {
 	margin-top: 34px;
