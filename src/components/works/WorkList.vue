@@ -55,7 +55,7 @@ export default {
 			immediate: false,
 			handler(works) {
 				const self = this
-				console.log(works)
+				// console.log(works)
 				this.targetWork = works[0]
 				this.$nextTick(() => {
 					self.bindObserver()
