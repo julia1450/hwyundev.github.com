@@ -1,26 +1,18 @@
 <template>
 	<div class="login-wrapper">
 		<form class="login-form">
-			<router-link :to="{ path: '/' }"><div class="logo"></div></router-link>
+			<router-link :to="{ path: baseUrl }"><div class="logo"></div></router-link>
 			<div class="input-wrapper">
 				<label class="form-group">
 					<input type="text" placeholder="아이디" />
 					<button class="btn-clear">
-						<font-awesome-icon
-							:icon="['fa', 'backspace']"
-							:style="{ color: '#ccc', verticalAlign: 'middle' }"
-							title="about"
-						/>
+						<font-awesome-icon :icon="['fa', 'backspace']" :style="{ color: '#ccc', verticalAlign: 'middle' }" title="about" />
 					</button>
 				</label>
 				<label class="form-group">
 					<input type="password" placeholder="비밀번호 " />
 					<button class="btn-clear">
-						<font-awesome-icon
-							:icon="['fa', 'backspace']"
-							:style="{ color: '#ccc', verticalAlign: 'middle' }"
-							title="about"
-						/>
+						<font-awesome-icon :icon="['fa', 'backspace']" :style="{ color: '#ccc', verticalAlign: 'middle' }" title="about" />
 					</button>
 				</label>
 			</div>
@@ -32,6 +24,11 @@
 <script>
 export default {
 	name: "LoginApp",
+	data() {
+		return {
+			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio" : "/",
+		}
+	},
 }
 </script>
 
