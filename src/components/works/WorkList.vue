@@ -155,7 +155,7 @@ export default {
 	overflow: auto;
 	padding: 30px;
 	position: relative;
-	min-width: 400px;
+	min-width: 270px;
 }
 .work-list .card {
 	cursor: pointer;
