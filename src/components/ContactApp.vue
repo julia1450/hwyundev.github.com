@@ -4,43 +4,21 @@
 		<div class="contact-wrap">
 			<div>
 				<div class="form-control">
-					<input
-						type="text"
-						name="sender"
-						id="sender"
-						placeholder="이름을 입력해주세요"
-					/>
+					<input type="text" name="sender" id="sender" placeholder="이름을 입력해주세요" />
 				</div>
 				<div class="form-control form-inline">
 					<select class="inline-item w-30p" v-model="selectedSenderType">
 						<option value="개인">개인</option>
 						<option value="회사">회사</option>
 					</select>
-					<input
-						class="inline-item w-left"
-						type="text"
-						name="company"
-						id="company"
-						placeholder="회사명을 입력해주세요"
-						:disabled="selectedSenderType === '개인'"
-					/>
+					<input class="inline-item w-left" type="text" name="company" id="company" placeholder="회사명을 입력해주세요" :disabled="selectedSenderType === '개인'" />
 				</div>
 				<div class="form-control">
-					<input
-						type="text"
-						name="subject"
-						id="subject"
-						placeholder="제목을 입력해주세요"
-					/>
+					<input type="text" name="subject" id="subject" placeholder="제목을 입력해주세요" />
 				</div>
 			</div>
 			<div class="form-control">
-				<input
-					type="text"
-					name="message"
-					id="message"
-					placeholder="메세지를 입력해주세요"
-				/>
+				<input type="text" name="message" id="message" placeholder="메세지를 입력해주세요" />
 			</div>
 		</div>
 		<button class="btn send-btn">send</button>
