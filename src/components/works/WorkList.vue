@@ -1,6 +1,6 @@
 <template>
 	<div class="section section--work">
-		<div class="work-content-wrap">
+		<div class="work-content-wrap inner">
 			<div class="work-list" ref="work-list" @scroll="changeTargetWork">
 				<ul v-if="works != null">
 					<li
@@ -30,7 +30,15 @@
 				</ul>
 			</div>
 			<div class="work-detail">
-				<template v-if="targetWork != null">{{ targetWork.workTitle }}</template>
+				<template v-if="targetWork != null">
+					<div class="bottom-drawer"></div>
+					<div class="work-info">
+						<div class="title">{{ targetWork.workTitle }}</div>
+						<div class="summary">{{ targetWork.workDescription }}</div>
+						<div class="role">프론트엔드 개발</div>
+						<div class="period">2021.01.30 ~ 2021.03.21</div>
+					</div>
+				</template>
 			</div>
 		</div>
 	</div>
@@ -108,6 +116,7 @@ export default {
 				clearTimeout(this.debounce)
 				this.debounce = setTimeout(() => {
 					this.bindObserver()
+					this.changeTargetWork()
 				}, 300)
 			})
 		},
@@ -144,6 +153,7 @@ export default {
 .section--work {
 	padding: 0;
 	height: calc(100vh - 120px);
+	background-color: #f8f4fe;
 }
 .work-content-wrap {
 	display: flex;
@@ -226,37 +236,80 @@ export default {
 	flex: 2;
 	padding: 30px;
 	box-sizing: border-box;
+	background-color: #fff;
+	margin: 30px 30px 30px 0px;
+	border-radius: 20px;
+	box-shadow: 0px 10px 15px rgb(0, 0, 0, 0.1);
+	position: relative;
+}
+.bottom-drawer {
+	display: none;
 }
 @media all and (max-height: 500px) {
 	.work-list .card {
-		cursor: pointer;
-		font-size: 30px;
-		background-color: #fff;
-		box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
 		height: 100px;
-		border-radius: 10px;
 		border-top-left-radius: 50px;
 		border-bottom-left-radius: 50px;
-		position: relative;
-		display: flex;
-		opacity: 0.5;
 	}
 	.card .thumnail {
-		height: 100%;
 		width: 100px;
-		border-radius: 50%;
-		padding: 5px;
-		box-sizing: border-box;
-		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	}
+}
+@media all and (max-width: 1200px) {
+	.work-list {
+		flex: 3;
+	}
+	.work-detail {
+		flex: 4;
+	}
+	.work-list .card {
+		height: calc((100vh - 180px) / 5);
+		border-top-left-radius: calc((100vh - 180px) / 10);
+		border-bottom-left-radius: calc((100vh - 180px) / 10);
+	}
+	.card .thumnail {
+		width: calc((100vh - 180px) / 5);
 	}
 }
 @media all and (max-width: 800px) {
 	.work-content-wrap {
 		display: block;
-		height: 40%;
+		height: 100%;
+		background-color: #f8f4fe;
 	}
 	.work-list {
-		height: 100%;
+		height: 70%;
+		box-sizing: border-box;
+	}
+	.work-list .card {
+		height: calc((100vh - 180px) / 6);
+		border-top-left-radius: calc((100vh - 180px) / 12);
+		border-bottom-left-radius: calc((100vh - 180px) / 12);
+	}
+	.card .thumnail {
+		width: calc((100vh - 180px) / 6);
+	}
+	.work-detail {
+		height: 30%;
+		box-sizing: border-box;
+		background-color: #fff;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		box-shadow: 0px -2px 5px -2px rgba(0, 0, 0, 0.2);
+		margin: 0;
+	}
+	.bottom-drawer {
+		display: block;
+		border-top-left-radius: 2px;
+		border-top-right-radius: 2px;
+		border-bottom-left-radius: 2px;
+		border-bottom-right-radius: 2px;
+		background-color: rgba(0, 0, 0, 0.7);
+		height: 4px;
+		width: 35px;
+		position: absolute;
+		top: 10px;
+		left: calc(50% - 17.5px);
 	}
 }
 </style>

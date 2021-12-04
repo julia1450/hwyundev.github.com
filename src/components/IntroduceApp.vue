@@ -9,20 +9,12 @@
 				<ul class="contact">
 					<li>
 						<a href="#">
-							<font-awesome-icon
-								:icon="['fa', 'envelope']"
-								:style="{ color: '#fff' }"
-								title="email"
-							/>
+							<font-awesome-icon :icon="['fa', 'envelope']" :style="{ color: '#fff' }" title="email" />
 						</a>
 					</li>
 					<li>
 						<a href="https://www.instagram.com/nyewoni_" target="_blank">
-							<font-awesome-icon
-								:icon="['fab', 'instagram']"
-								:style="{ color: '#fff' }"
-								title="instagram"
-							/>
+							<font-awesome-icon :icon="['fab', 'instagram']" :style="{ color: '#fff' }" title="instagram" />
 						</a>
 					</li>
 				</ul>
@@ -30,10 +22,7 @@
 			<div class="detail-introduce">
 				<h1>introduce</h1>
 				<p class="introduce-title">Frontend Developer</p>
-				<p class="introduce-description">
-					프론트엔드
-					개발자입니다아알어ㅏ러아ㅗ나로낟롼ㅇ란ㅇ혼이ㅏ혼이ㅏ혼아러나ㅣ돌도라ㅣㄴ도롸도
-				</p>
+				<p class="introduce-description">프론트엔드 개발자입니다아알어ㅏ러아ㅗ나로낟롼ㅇ란ㅇ혼이ㅏ혼이ㅏ혼아러나ㅣ돌도라ㅣㄴ도롸도</p>
 			</div>
 		</div>
 	</div>

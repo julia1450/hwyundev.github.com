@@ -3,35 +3,15 @@
 		<div class="inner">
 			<h1 class="section-title">skill</h1>
 			<ul class="skills-wrap">
-				<li
-					class="skill-item"
-					v-for="(skill, idx) in skills"
-					:key="skill.skillId"
-				>
+				<li class="skill-item" v-for="(skill, idx) in skills" :key="skill.skillId">
 					<div>
 						<div class="skill-name-wrap">
-							<img
-								:src="skill.skillImgPath"
-								:alt="skill.skillName"
-								width="50"
-								height="50"
-							/>
+							<img :src="skill.skillImgPath" :alt="skill.skillName" width="50" height="50" />
 							<p class="skill-name">{{ skill.skillName }}</p>
 						</div>
 						<div class="circle-progress-wrap">
-							<svg
-								class="circle-progress"
-								width="140"
-								height="140"
-								viewBox="0 0 140 140"
-							>
-								<circle
-									class="frame"
-									cx="70"
-									cy="70"
-									:r="progressRadius"
-									stroke-width="12"
-								/>
+							<svg class="circle-progress" width="140" height="140" viewBox="0 0 140 140">
+								<circle class="frame" cx="70" cy="70" :r="progressRadius" stroke-width="12" />
 								<circle
 									class="bar"
 									cx="70"
@@ -60,16 +40,7 @@ export default {
 	data() {
 		return {
 			progressRadius: 60,
-			progressColorList: [
-				"#ccbae2",
-				"#f0a9a7",
-				"#d9bbc7",
-				"#b1cfeb",
-				"#a9d6a3",
-				"#e1c2c0",
-				"#d8cab0",
-				"#d5adcf",
-			],
+			progressColorList: ["#ccbae2", "#f0a9a7", "#d9bbc7", "#b1cfeb", "#a9d6a3", "#e1c2c0", "#d8cab0", "#d5adcf"],
 			skills: [
 				{
 					skillId: 1,
