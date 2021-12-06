@@ -1,9 +1,5 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-import AppMain from "@/components/AppMain"
-import WorkList from "@/components/works/WorkList"
-import BasicLayout from "@/components/layout/BasicLayout"
-import LoginApp from "@/views/LoginApp"
 
 Vue.use(VueRouter)
 
@@ -11,24 +7,24 @@ const baseURL = process.env.NODE_ENV === "production" ? "/portfolio/" : "/"
 const routes = [
 	{
 		path: `${baseURL}`,
-		component: BasicLayout,
+		component: () => import("@/components/layout/BasicLayout"),
 		meta: { scrollToTop: true, title: "HyeVlog" },
 		children: [
 			{
 				path: "",
-				component: AppMain,
+				component: () => import("@/components/AppMain"),
 				meta: { title: "HyeVlog" },
 			},
 			{
 				path: "works",
-				component: WorkList,
+				component: () => import("@/components/works/WorkList"),
 				meta: { title: "작업물 목록" },
 			},
 		],
 	},
 	{
 		path: `${baseURL}login`,
-		component: LoginApp,
+		component: () => import("@/views/LoginApp"),
 		meta: {
 			title: "관리자 인증하기",
 		},
