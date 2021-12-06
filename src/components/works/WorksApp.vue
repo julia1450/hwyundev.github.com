@@ -183,7 +183,7 @@ export default {
 
 <style scoped>
 .section--work {
-	background-color: #e6e6e6;
+	background-color: #f1f1f1;
 	user-select: none;
 }
 

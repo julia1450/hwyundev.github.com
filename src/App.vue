@@ -56,7 +56,7 @@ body {
 }
 
 .section-title {
-	margin-bottom: 10px;
+	margin-bottom: 25px;
 	font-size: 20px;
 }
 
@@ -76,6 +76,7 @@ body {
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+	box-shadow: 0 2px 2px rgb(0 0 0 / 20%);
 }
 
 .btn-default {
