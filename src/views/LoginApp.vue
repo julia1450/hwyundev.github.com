@@ -1,22 +1,22 @@
 <template>
 	<div class="login-wrapper">
-		<form class="login-form">
+		<form class="login-form" @submit.prevent="loginForm">
 			<router-link :to="{ path: baseUrl }"><div class="logo"></div></router-link>
 			<div class="input-wrapper">
 				<label class="form-group">
-					<input type="text" placeholder="아이디" />
-					<button class="btn-clear">
-						<font-awesome-icon :icon="['fa', 'backspace']" :style="{ color: '#ccc', verticalAlign: 'middle' }" title="about" />
+					<input type="text" placeholder="아이디" v-model="id" />
+					<button type="button" class="btn-clear" @click="clearId" v-if="id">
+						<font-awesome-icon :icon="['fa', 'backspace']" :style="{ color: '#ccc', verticalAlign: 'middle' }" title="clear" />
 					</button>
 				</label>
 				<label class="form-group">
-					<input type="password" placeholder="비밀번호 " />
-					<button class="btn-clear">
-						<font-awesome-icon :icon="['fa', 'backspace']" :style="{ color: '#ccc', verticalAlign: 'middle' }" title="about" />
+					<input type="password" placeholder="비밀번호" v-model="password" />
+					<button type="button" class="btn-clear" @click="clearPassword" v-if="password">
+						<font-awesome-icon :icon="['fa', 'backspace']" :style="{ color: '#ccc', verticalAlign: 'middle' }" title="clear" />
 					</button>
 				</label>
 			</div>
-			<button class="btn login-btn">LOG IN</button>
+			<button type="submit" class="btn login-btn" :disabled="!id || !password">LOG IN</button>
 		</form>
 	</div>
 </template>
@@ -27,7 +27,25 @@ export default {
 	data() {
 		return {
 			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio/" : "/",
+			id: "",
+			password: "",
 		}
+	},
+	methods: {
+		clearId() {
+			this.id = ""
+		},
+		clearPassword() {
+			this.password = ""
+		},
+		loginForm() {
+			// console.log("login form")
+			this.initForm()
+		},
+		initForm() {
+			this.id = ""
+			this.password = ""
+		},
 	},
 }
 </script>
@@ -105,5 +123,9 @@ export default {
 	background-color: #b194d4;
 	color: white;
 	font-weight: 600;
+}
+.login-btn:disabled {
+	cursor: unset;
+	background-color: #ccc;
 }
 </style>
