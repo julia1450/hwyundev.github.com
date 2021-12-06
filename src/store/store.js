@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
 	state: {
-		introduceName: "Yun HyeWon",
+		introduceName: "Yun<br>HyeWon",
 		dashboardWorks: [],
 	},
 	getters: {

@@ -3,9 +3,7 @@
 		<div class="profil-image"></div>
 		<div class="inner">
 			<div class="common-introduce">
-				<div class="name-area">
-					{{ this.getIntroduceName }}
-				</div>
+				<div class="name-area" v-html="profileName"></div>
 				<ul class="contact">
 					<li>
 						<a href="#">
@@ -33,7 +31,9 @@ import { mapGetters } from "vuex"
 export default {
 	name: "IntroduceApp",
 	computed: {
-		...mapGetters(["getIntroduceName"]),
+		...mapGetters({
+			profileName: "getIntroduceName",
+		}),
 	},
 }
 </script>
@@ -51,8 +51,8 @@ export default {
 
 .profil-image {
 	background: #fff center / contain no-repeat url(~@/assets/img/my-picture.jpg);
-	min-height: calc(100vh - 120px - 300px);
-	min-width: calc(100vh - 120px - 300px);
+	min-height: calc(100vh - 450px);
+	min-width: calc(100vh - 450px);
 	margin-bottom: 30px;
 	border-radius: 50%;
 }
@@ -75,7 +75,7 @@ export default {
 }
 
 .name-area {
-	font-size: 80px;
+	font-size: 70px;
 }
 
 .contact {
