@@ -40,6 +40,10 @@ export default {
 		},
 		loginForm() {
 			// console.log("login form")
+			this.$store.dispatch("login", {
+				id: this.id,
+				password: this.password,
+			})
 			this.initForm()
 		},
 		initForm() {

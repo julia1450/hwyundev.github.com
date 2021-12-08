@@ -278,9 +278,20 @@ export default {
 	height: 10px;
 	background-color: #fff;
 }
-
+.select-work-wrap label:first-child {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.select-work-wrap label:last-child {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
 .select-work-wrap label.active {
-	background-color: #b1cfeb;
+	background-color: #9a91a5;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .select-work-wrap input {
