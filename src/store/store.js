@@ -11,8 +11,8 @@ export const store = new Vuex.Store({
 		introduceName: "Yun<br>HyeWon",
 		dashboardWorks: [],
 		accessToken: getAuthFromCookie().accessToken || "",
-		refreshToken: getAuthFromCookie.refreshToken || "",
-		userInfo: getUserFromCookie,
+		refreshToken: getAuthFromCookie().refreshToken || "",
+		userInfo: getUserFromCookie() || "",
 	},
 	getters: {
 		getIntroduceName(state) {

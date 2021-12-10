@@ -7,24 +7,28 @@ function saveUserToCookie(value) {
 }
 
 function getAuthFromCookie() {
-	const value = document.cookie
-		.split("; ")
-		.find(row => row.startsWith("til_auth"))
-		.split("=")[1]
+	const keyValue = document.cookie.split("; ").find(row => {
+		return row.startsWith("til_auth")
+	})
+	const value = keyValue ? keyValue.split("=")[1] : ""
 	try {
-		if (value) return JSON.parse(value)
+		if (value) {
+			return JSON.parse(value)
+		} else return ""
 	} catch (e) {
 		return ""
 	}
 }
 
 function getUserFromCookie() {
-	const value = document.cookie
-		.split("; ")
-		.find(row => row.startsWith("til_user"))
-		.split("=")[1]
+	const keyValue = document.cookie.split("; ").find(row => {
+		return row.startsWith("til_user")
+	})
+	const value = keyValue ? keyValue.split("=")[1] : ""
 	try {
-		if (value) return JSON.parse(value)
+		if (value) {
+			return JSON.parse(value)
+		} else return ""
 	} catch (e) {
 		return ""
 	}
