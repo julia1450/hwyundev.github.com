@@ -2,6 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 import { fetchWorksList } from "@/api/modules/work.js"
 import { loginApp } from "@/api/modules/auth.js"
+import { saveAuthToCookie, saveUserToCookie, getAuthFromCookie, getUserFromCookie } from "@/util/cookies.js"
 
 Vue.use(Vuex)
 
@@ -9,9 +10,9 @@ export const store = new Vuex.Store({
 	state: {
 		introduceName: "Yun<br>HyeWon",
 		dashboardWorks: [],
-		accessToken: "",
-		refreshToken: "",
-		userInfo: {},
+		accessToken: getAuthFromCookie().accessToken || "",
+		refreshToken: getAuthFromCookie.refreshToken || "",
+		userInfo: getUserFromCookie,
 	},
 	getters: {
 		getIntroduceName(state) {
@@ -33,6 +34,8 @@ export const store = new Vuex.Store({
 			state.accessToken = loginData.accessToken
 			state.refreshToken = loginData.refreshToken
 			state.userInfo = loginData.userInfo
+			saveAuthToCookie({ accessToken: state.accessToken, refreshToken: state.refreshToken })
+			saveUserToCookie(state.userInfo)
 		},
 	},
 	actions: {
