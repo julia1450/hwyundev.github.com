@@ -21,5 +21,11 @@ export default {
 		WorksApp,
 		ContactApp,
 	},
+	beforeRouteLeave(to, from, next) {
+		let position = document.documentElement.scrollTop || document.body.scrollTop
+		from.meta.savedPosition = position
+		console.log(from)
+		next()
+	},
 }
 </script>

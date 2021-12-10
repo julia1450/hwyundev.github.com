@@ -1,8 +1,8 @@
 import { axiosInstance } from "../index"
 
 function loginApp(userInfo) {
-	return axiosInstance.get("login", {
-		params: { ...userInfo },
+	return axiosInstance.post("login", {
+		...userInfo,
 	})
 }
 

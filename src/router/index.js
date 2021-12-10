@@ -8,11 +8,11 @@ const routes = [
 	{
 		path: `${baseURL}`,
 		component: () => import("@/components/layout/BasicLayout"),
-		meta: { scrollToTop: true, title: "HyeVlog" },
+		meta: { title: "HyeVlog" },
 		children: [
 			{
 				path: "",
-				component: () => import("@/components/AppMain"),
+				component: () => import("@/views/MainPage"),
 				meta: { title: "HyeVlog" },
 			},
 			{
@@ -24,7 +24,7 @@ const routes = [
 	},
 	{
 		path: `${baseURL}login`,
-		component: () => import("@/views/LoginApp"),
+		component: () => import("@/views/LoginPage"),
 		meta: {
 			title: "관리자 인증하기",
 		},
@@ -33,9 +33,15 @@ const routes = [
 
 const router = new VueRouter({
 	mode: "history",
+	scrollBehavior(to, from, savedPosition) {
+		if (savedPosition) {
+			return savedPosition
+		} else {
+			return { x: 0, y: 0 }
+		}
+	},
 	routes: routes,
 })
-
 router.afterEach(to => {
 	document.title = to.meta.title || "HyeVlog"
 })

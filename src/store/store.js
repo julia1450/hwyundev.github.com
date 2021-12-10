@@ -24,7 +24,7 @@ export const store = new Vuex.Store({
 	mutations: {
 		scrollPage(state, sectionName) {
 			let offsetTop = document.getElementById(sectionName).offsetTop - 60
-			document.body.scrollTo(0, offsetTop)
+			window.scrollTo(0, offsetTop)
 		},
 		setWorks(state, works) {
 			state.dashboardWorks = works
@@ -36,15 +36,13 @@ export const store = new Vuex.Store({
 		},
 	},
 	actions: {
-		fetchWorks(state, payload) {
-			fetchWorksList(payload).then(response => {
-				this.commit("setWorks", response.data)
-			})
+		async fetchWorks(state, payload) {
+			const { data } = await fetchWorksList(payload)
+			this.commit("setWorks", data)
 		},
-		login(state, payload) {
-			loginApp(payload).then(response => {
-				this.commit("setLoginData", response.data)
-			})
+		async login(state, payload) {
+			const { data } = await loginApp(payload)
+			this.commit("setLoginData", data)
 		},
 	},
 })

@@ -15,8 +15,8 @@ export default {
 html,
 body {
 	margin: 0;
-	overflow: overlay;
-	height: 100vh;
+	/* overflow: overlay; */
+	/* height: 100vh; */
 	/* 스크롤바 투명하게 (explorer 호환) */
 	-ms-overflow-style: none;
 }
@@ -31,6 +31,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	min-width: 330px;
+	/* height: 100%; */
 }
 
 .section .inner {

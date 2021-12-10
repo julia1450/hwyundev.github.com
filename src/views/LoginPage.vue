@@ -23,7 +23,7 @@
 
 <script>
 export default {
-	name: "LoginApp",
+	name: "LoginPage",
 	data() {
 		return {
 			baseUrl: process.env.NODE_ENV === "production" ? "/portfolio/" : "/",
@@ -38,13 +38,12 @@ export default {
 		clearPassword() {
 			this.password = ""
 		},
-		loginForm() {
-			// console.log("login form")
-			this.$store.dispatch("login", {
+		async loginForm() {
+			await this.$store.dispatch("login", {
 				id: this.id,
 				password: this.password,
 			})
-			this.initForm()
+			this.$router.replace("/")
 		},
 		initForm() {
 			this.id = ""
