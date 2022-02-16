@@ -1,5 +1,6 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
+import { store } from "@/store/store.js"
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,14 @@ const routes = [
 			title: "관리자 인증하기",
 		},
 	},
+	{
+		path: `${baseURL}admin`,
+		component: () => import("@/views/AdminPage"),
+		meta: {
+			title: "관리자 페이지",
+			auth: true,
+		},
+	},
 ]
 
 const router = new VueRouter({
@@ -41,6 +50,13 @@ const router = new VueRouter({
 		}
 	},
 	routes: routes,
+})
+router.beforeEach((to, from, next) => {
+	if (!to.meta.auth) {
+		next()
+	} else if (to.meta.auth && !store.state.isLogin) {
+		router.replace("/login")
+	}
 })
 router.afterEach(to => {
 	document.title = to.meta.title || "HyeVlog"
