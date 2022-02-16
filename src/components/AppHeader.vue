@@ -29,15 +29,26 @@
 				</li>
 			</ul>
 			<div class="button-area">
-				<router-link :to="{ path: baseUrl + 'login' }">
-					<font-awesome-icon :icon="['fa', 'key']" :style="{ color: '#ccbae2' }" title="관리자 인증" />
-				</router-link>
+				<template v-if="isLogin">
+					<router-link :to="{ path: baseUrl + 'management' }">
+						<font-awesome-icon :icon="['fa', 'cog']" :style="{ color: '#ccbae2' }" title="관리자 페이지로" />
+					</router-link>
+					<a @click="logout" href="javascript:void(0)">
+						<font-awesome-icon :icon="['fa', 'sign-out-alt']" :style="{ color: '#ccbae2' }" title="로그아웃" />
+					</a>
+				</template>
+				<template v-else>
+					<router-link :to="{ path: baseUrl + 'login' }">
+						<font-awesome-icon :icon="['fa', 'key']" :style="{ color: '#ccbae2' }" title="관리자 인증" />
+					</router-link>
+				</template>
 			</div>
 		</div>
 	</header>
 </template>
 
 <script>
+import { mapGetters } from "vuex"
 export default {
 	name: "AppHeader",
 	data() {
@@ -50,6 +61,15 @@ export default {
 			let sectionName = this.$route.hash.slice(1)
 			this.$store.commit("scrollPage", sectionName)
 		},
+		logout() {
+			this.$store.commit("logout")
+		},
+	},
+	computed: {
+		...mapGetters({
+			isLogin: "getIsLogin",
+			userInfo: "getUserInfo",
+		}),
 	},
 }
 </script>
@@ -113,6 +133,9 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+.button-area a + a {
+	margin-left: 10px;
 }
 @media all and (max-width: 600px) {
 	.menu li {
