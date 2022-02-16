@@ -34,4 +34,11 @@ function getUserFromCookie() {
 	}
 }
 
-export { saveAuthToCookie, saveUserToCookie, getAuthFromCookie, getUserFromCookie }
+function deleteCookieByName(name) {
+	let date = new Date()
+	date.setDate(date.getDate() - 100)
+	let Cookie = `${name}=;Expires=${date.toUTCString()}`
+	document.cookie = Cookie
+}
+
+export { saveAuthToCookie, saveUserToCookie, getAuthFromCookie, getUserFromCookie, deleteCookieByName }
