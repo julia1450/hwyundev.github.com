@@ -21,6 +21,11 @@ export default {
 		WorksApp,
 		ContactApp,
 	},
+	mounted() {
+		this.$nextTick(() => {
+			document.getElementById(this.$route.hash.replace("#", "")).scrollIntoView()
+		})
+	},
 	beforeRouteLeave(to, from, next) {
 		let position = document.documentElement.scrollTop || document.body.scrollTop
 		from.meta.savedPosition = position
