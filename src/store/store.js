@@ -2,17 +2,17 @@ import Vue from "vue"
 import Vuex from "vuex"
 import { fetchWorksList } from "@/api/modules/work.js"
 import { loginApp } from "@/api/modules/auth.js"
-import { saveAuthToCookie, saveUserToCookie, getAuthFromCookie, getUserFromCookie } from "@/util/cookies.js"
+import { saveAuthToCookie, saveUserToCookie, getAuthFromCookie, getUserFromCookie, deleteCookieByName } from "@/util/cookies.js"
 
 Vue.use(Vuex)
-
-export const store = new Vuex.Store({
+const storeConfig = {
 	state: {
 		introduceName: "Yun<br>HyeWon",
 		dashboardWorks: [],
 		accessToken: getAuthFromCookie().accessToken || "",
 		refreshToken: getAuthFromCookie().refreshToken || "",
 		userInfo: getUserFromCookie() || "",
+		isLogin: getUserFromCookie().userId != null,
 	},
 	getters: {
 		getIntroduceName(state) {
@@ -20,6 +20,12 @@ export const store = new Vuex.Store({
 		},
 		getDashboardWorks(state) {
 			return state.dashboardWorks
+		},
+		getIsLogin(state) {
+			return state.isLogin
+		},
+		getUserInfo(state) {
+			return state.userInfo
 		},
 	},
 	mutations: {
@@ -37,15 +43,26 @@ export const store = new Vuex.Store({
 			saveAuthToCookie({ accessToken: state.accessToken, refreshToken: state.refreshToken })
 			saveUserToCookie(state.userInfo)
 		},
+		logout(state) {
+			state.accessToken = ""
+			state.refreshToken = ""
+			state.userInfo = ""
+			deleteCookieByName("til_auth")
+			deleteCookieByName("til_user")
+		},
 	},
 	actions: {
-		async fetchWorks(state, payload) {
+		async fetchWorks({ commit }, payload) {
 			const { data } = await fetchWorksList(payload)
-			this.commit("setWorks", data)
+			commit("setWorks", data)
 		},
-		async login(state, payload) {
+		async login({ commit }, payload) {
 			const { data } = await loginApp(payload)
-			this.commit("setLoginData", data)
+			commit("setLoginData", data)
 		},
 	},
-})
+}
+
+const store = new Vuex.Store(storeConfig)
+
+export { storeConfig, store }
